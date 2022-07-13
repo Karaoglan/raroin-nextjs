@@ -1,7 +1,9 @@
-import React, {useRef} from 'react';
-import {Link} from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRef } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+
 const CardItems = [
   {
     img: '1',
@@ -68,6 +70,7 @@ const CardItems = [
 const CardProfile = () => {
   const ref = useRef();
   const closeTooltip = () => ref.current.close();
+
   return (
     <div className="row mb-30_reset">
       {CardItems.map((val, i) => (
@@ -76,11 +79,11 @@ const CardProfile = () => {
             <div className="card_body space-y-10">
               {/* =============== */}
               <div className="card_head">
-                <img src={`img/items/item_${val.img}.png`} alt="nftimage" />
-                <Link to="#" className="likes space-x-3">
+                <img src={`/img/items/item_${val.img}.png`} alt="nftimage" />
+                <a href="#" className="likes space-x-3">
                   <i className="ri-heart-3-fill" />
                   <span className="txt_sm">{val.likes}k</span>
-                </Link>
+                </a>
                 <div className="action">
                   <Popup
                     className="custom"
@@ -186,7 +189,7 @@ const CardProfile = () => {
                                         has been listing to our database
                                       </p>
                                       <Link
-                                        to="#"
+                                        href="#"
                                         className="btn btn-dark w-full">
                                         Watch the listings
                                       </Link>
@@ -204,7 +207,7 @@ const CardProfile = () => {
               </div>
               {/* =============== */}
               <h6 className="card_title">
-                <Link className="color_black" to="item-details">
+                <Link className="color_black" href="item-details">
                   {val.title}
                 </Link>
               </h6>
@@ -217,35 +220,35 @@ const CardProfile = () => {
 														">
                   <div className="creators space-x-10">
                     <div className="avatars -space-x-20">
-                      <Link to="profile">
+                      <a href="profile">
                         <img
-                          src={`img/avatars/avatar_${val.avatar_img1}.png`}
+                          src={`/img/avatars/avatar_${val.avatar_img1}.png`}
                           alt="Avatar"
                           className="avatar avatar-sm"
                         />
-                      </Link>
-                      <Link to="profile">
+                      </a>
+                      <a href="profile">
                         <img
-                          src={`img/avatars/avatar_${val.avatar_img2}.png`}
+                          src={`/img/avatars/avatar_${val.avatar_img2}.png`}
                           alt="Avatar"
                           className="avatar avatar-sm"
                         />
-                      </Link>
+                      </a>
                     </div>
-                    <Link to="profile">
+                    <a href="profile">
                       <p className="avatars_name txt_sm">
                         {val.avatar_name} ..
                       </p>
-                    </Link>
+                    </a>
                   </div>
-                  <Link to="#" className="space-x-3">
+                  <a href="#" className="space-x-3">
                     <p className="color_green txt_sm">{val.price} ETH</p>
-                  </Link>
+                  </a>
                 </div>
                 <div className="hr" />
                 <div className="d-flex align-items-center space-x-10">
                   <i className="ri-vip-crown-line" />
-                  <p className="color_text txt_sm" style={{width: 'auto'}}>
+                  <p className="color_text txt_sm" style={{ width: 'auto' }}>
                     Highest bid
                   </p>
                   <span className="color_black txt_sm">

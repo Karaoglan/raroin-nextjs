@@ -1,20 +1,21 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {HashLink} from 'react-router-hash-link';
 
 const HeroPreview = () => {
   return (
     <div className="hero__index">
-      <img className="sh_1" src="img/icons/sh_1.png" alt="ImgPreview" />
-      <img className="sh_2" src="img/icons/sh_2.png" alt="ImgPreview" />
-      <img className="sh_3" src="img/icons/sh_3.png" alt="ImgPreview" />
+      <Image className="sh_1" src="/img/icons/sh_1.png" alt="ImagePreview" width={100} height={100} />
+      <Image className="sh_2" src="/img/icons/sh_2.png" alt="ImagePreview" width={100} height={100}/>
+      <Image className="sh_3" src="/img/icons/sh_3.png" alt="ImagePreview" width={100} height={100}/>
       <div className="container">
         <div className="row align-items-center justify-content-center mb-70 mt-60">
           <div className="col-lg-auto">
-            <img
-              className="img-fluid d-none d-md-block"
-              src="img/logos/raroin.svg"
-              alt="ImgPreview"
+            <Image
+              className="Image-fluid d-none d-md-block"
+              src="/img/logos/raroin.svg"
+              alt="ImagePreview"
+              width={100} height={100}
             />
           </div>
           <div className="col-lg-6">
@@ -30,18 +31,12 @@ const HeroPreview = () => {
               <div
                 className="sm:space-x-0 space-x-20 d-flex flex-column flex-md-row
                   sm:space-y-20">
-                <HashLink
-                  className="btn btn-primary"
-                  to="#Demos"
-                  scroll={(el) => el.scrollIntoView({block: 'start'})}>
-                  View Demos
-                </HashLink>
-                <Link className="btn btn-white" to="/upload">
+                <Link className="btn btn-white" href="/upload">
                   Create Item
                 </Link>
-                <Link className="btn btn-white" to="/">
+                <a className="btn btn-white" href="/">
                   Purchase now
-                </Link>
+                </a>
               </div>
             </div>
           </div>

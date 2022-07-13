@@ -1,11 +1,14 @@
 import { useWeb3React } from "@web3-react/core";
-import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import Popup from "reactjs-popup";
 
 const HeroProfile = () => {
     const ref = useRef();
-    const web3reactContext = useWeb3React();
+    const { chainId, account, activate, active, library } = useWeb3React();
+
+    useEffect(() => {
+        console.log(chainId, account, active, library);
+    }, [chainId, account, active]);
 
     const [isActive, setActive] = useState(false);
     const toggleFollow = () => {
@@ -26,7 +29,7 @@ const HeroProfile = () => {
         <div className="mb-100">
             <div className="hero__profile">
                 <div className="cover">
-                    <img src="img/bg/prrofile.png" alt="ImgPreview" />
+                    <img src="/img/bg/prrofile.png" alt="ImgPreview" />
                 </div>
                 <div className="infos">
                     <div className="container">
@@ -36,7 +39,7 @@ const HeroProfile = () => {
                                     <div className="avatar_wrap">
                                         <img
                                             className="avatar avatar-lg"
-                                            src="img/avatars/avatar_4.png"
+                                            src="/img/avatars/avatar_4.png"
                                             alt="avatar"
                                         />
                                     </div>
@@ -48,19 +51,15 @@ const HeroProfile = () => {
                                     <div className="mb-20">
                                         <div className="copy">
                                             <span className="color_text">
-                                                {web3reactContext &&
-                                                web3reactContext.account
-                                                    ? web3reactContext.account
-                                                    : "NOT_CONNECTED"}
+                                                {account ? account : "NOT_CONNECTED"}
                                             </span>
                                         </div>
                                     </div>
                                     <div className="d-flex flex-wrap align-items-center space-x-20">
                                         <div className="mb-20">
                                             <div
-                                                className={`btn btn-dark btn-sm ${
-                                                    isActive ? "btn-prim" : null
-                                                } `}
+                                                className={`btn btn-dark btn-sm ${isActive ? "btn-prim" : null
+                                                    } `}
                                                 onClick={toggleFollow}
                                             >
                                                 Follow{isActive ? "ing" : null}
@@ -75,11 +74,10 @@ const HeroProfile = () => {
                                                     <i className="ri-share-line"></i>
                                                 </div>
                                                 <div
-                                                    className={`dropdown__popup ${
-                                                        isShare
-                                                            ? "visible"
-                                                            : null
-                                                    } `}
+                                                    className={`dropdown__popup ${isShare
+                                                        ? "visible"
+                                                        : null
+                                                        } `}
                                                 >
                                                     <ul className="space-y-10">
                                                         <li>
@@ -131,11 +129,10 @@ const HeroProfile = () => {
                                                     <i className="ri-more-fill"></i>
                                                 </div>
                                                 <div
-                                                    className={`dropdown__popup ${
-                                                        isMore
-                                                            ? "visible"
-                                                            : null
-                                                    } `}
+                                                    className={`dropdown__popup ${isMore
+                                                        ? "visible"
+                                                        : null
+                                                        } `}
                                                 >
                                                     <ul className="space-y-10">
                                                         <li>
@@ -143,8 +140,8 @@ const HeroProfile = () => {
                                                                 className="custom"
                                                                 ref={ref}
                                                                 trigger={
-                                                                    <Link
-                                                                        to="#"
+                                                                    <a
+                                                                        href="#"
                                                                         className="content space-x-10 d-flex"
                                                                     >
                                                                         <i className="ri-flag-line" />
@@ -152,7 +149,7 @@ const HeroProfile = () => {
                                                                             {" "}
                                                                             Report{" "}
                                                                         </span>
-                                                                    </Link>
+                                                                    </a>
                                                                 }
                                                                 position="bottom center"
                                                             >

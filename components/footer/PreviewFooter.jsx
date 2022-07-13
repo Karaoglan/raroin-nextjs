@@ -1,6 +1,6 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-
-import {Link} from 'react-router-dom';
 
 const PreviewFooter = () => {
   return (
@@ -8,21 +8,23 @@ const PreviewFooter = () => {
       <div className="container px-xl-0">
         <div className="row justify-content-between align-items-center">
           <div className="col-lg-auto text-xl-left logo_holder">
-            <Link to="/">
-              <img
+            <a href="/">
+              <Image
                 className="header__logo"
                 id="logo_js"
-                src="img/logos/Logo.svg"
+                src="/img/logos/Logo.svg"
                 alt="logo"
+                width={100}
+                height={100}
               />
-            </Link>
+            </a>
           </div>
           <div className="col-lg-auto semibold space-x-20 links bottom0menu">
-            <Link to="mailto:creabik@gmail.com" className="link color_text">
+            <Link href="mailto:creabik@gmail.com" className="link color_text">
               Support
             </Link>
             <Link
-              to="https://themeforest.net/user/creabik"
+              href="https://themeforest.net/user/creabik"
               className="link
               color_text">
               Creabik Team

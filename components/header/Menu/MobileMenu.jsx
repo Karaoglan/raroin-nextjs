@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
-import {Link} from 'react-router-dom';
+
 const Menu = [
   {
     title: ' Home page 1',
@@ -37,7 +38,7 @@ function MobileMenu() {
         <ul className="d-flex space-y-20">
           {Menu.map((val, i) => (
             <li key={i}>
-            <Link to={val.link} className="color_black">
+            <Link href={val.link} className="color_black">
               {val.title}
             </Link>
           </li>
@@ -50,9 +51,9 @@ function MobileMenu() {
               <i className="ri-search-line" />
             </button>
           </div>
-          <Link className="btn btn-grad btn-sm" to="connect-wallet">
+          <a className="btn btn-grad btn-sm" href="connect-wallet">
             Connect wallet
-          </Link>
+          </a>
         </div>
       </div>
     </div>

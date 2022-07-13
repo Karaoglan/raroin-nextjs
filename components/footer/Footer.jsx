@@ -1,5 +1,6 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 function Footer() {
   return (
@@ -9,9 +10,9 @@ function Footer() {
           <div className="row">
             <div className="col-lg-6 space-y-20">
               <div className="footer__logo">
-                <Link to="/">
-                  <img src={`img/logos/Logo.svg`} alt="logo" id="logo_js_f" />
-                </Link>
+                <a href="/">
+                  <Image src={`/img/logos/Logo.svg`} alt="logo" id="logo_js_f" width={100} height={100} />
+                </a>
               </div>
               <p className="footer__text">
                 raroin is a shared liquidity NFT market smart contract
@@ -45,16 +46,16 @@ function Footer() {
               <h6 className="footer__title">Raroin</h6>
               <ul className="footer__list">
                 <li>
-                  <Link to="home-1"> Home1 </Link>
+                  <Link href="home-1"> Home1 </Link>
                 </li>
                 <li>
-                  <Link to="home-2"> Home2</Link>
+                  <Link href="home-2"> Home2</Link>
                 </li>
                 <li>
-                  <Link to="home-3"> Home3 </Link>
+                  <Link href="home-3"> Home3 </Link>
                 </li>
                 <li>
-                  <Link to="marketplace"> Marketplace</Link>
+                  <Link href="marketplace"> Marketplace</Link>
                 </li>
               </ul>
             </div>
@@ -62,16 +63,16 @@ function Footer() {
               <h6 className="footer__title">Assets</h6>
               <ul className="footer__list">
                 <li>
-                  <Link to="profile"> Profile </Link>
+                  <Link href="profile"> Profile </Link>
                 </li>
                 <li>
-                  <Link to="creators"> Creators </Link>
+                  <Link href="creators"> Creators </Link>
                 </li>
                 <li>
-                  <Link to="collections"> Colletctions </Link>
+                  <Link href="collections"> Colletctions </Link>
                 </li>
                 <li>
-                  <Link to="Activity"> Activity</Link>
+                  <Link href="Activity"> Activity</Link>
                 </li>
               </ul>
             </div>
@@ -79,16 +80,16 @@ function Footer() {
               <h6 className="footer__title">Company</h6>
               <ul className="footer__list">
                 <li>
-                  <Link to="upload-type"> Upload Types </Link>
+                  <Link href="upload-type"> Upload Types </Link>
                 </li>
                 <li>
-                  <Link to="upload"> Upload </Link>
+                  <Link href="upload"> Upload </Link>
                 </li>
                 <li>
-                  <Link to="connect-wallet"> Connect wallet</Link>
+                  <Link href="connect-wallet"> Connect wallet</Link>
                 </li>
                 <li>
-                  <Link to="item-details"> Item details </Link>
+                  <Link href="item-details"> Item details </Link>
                 </li>
               </ul>
             </div>

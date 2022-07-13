@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const LeftMenu = [
   {
@@ -123,20 +122,20 @@ function MegaMenu() {
         <div className="col-lg-6 space-y-10">
           {LeftMenu.map((val, i) => (
             <li key={i}>
-              <Link to={val.link}>
+              <a href={val.link}>
                 <i className={`ri-${val.icon}-line`} />
                 {val.title}
-              </Link>
+              </a>
             </li>
           ))}
         </div>
         <div className="col-lg-6 space-y-10">
           {RightMenu.map((val, i) => (
             <li key={i} >
-              <Link to={val.link}>
+              <a href={val.link}>
                 <i className={`ri-${val.icon}-line`} />
                 {val.title}
-              </Link>
+              </a>
             </li>
           ))}
         </div>

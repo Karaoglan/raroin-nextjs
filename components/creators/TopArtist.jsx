@@ -93,14 +93,14 @@ export default function TopArtist() {
                         <div className="badge">
                           <Image src={`/img/icons/Badge.svg`} width="100" height="100" alt="icons" />
                         </div>
-                        <Link href="profile">
+                        <a href="profile">
                           <Image
                             width="100" height="100"
                             src={`/img/avatars/avatar_${val.img}.png`}
                             alt="Avatar"
                             className="avatar avatar-md"
                           />
-                        </Link>
+                        </a>
                       </div>
                       <div>
                         <Link href="profile">

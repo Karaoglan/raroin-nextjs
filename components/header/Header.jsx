@@ -1,8 +1,8 @@
-import React from 'react';
+import Link from 'next/link';
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
-import MobileMenu from './Menu/MobileMenu';
 import MegaMenu from './Menu/MegaMenu';
+import MobileMenu from './Menu/MobileMenu';
+
 const HomesMenu = [
   {
     icon: 'home-smile-2',
@@ -52,11 +52,11 @@ const Header = () => {
         <div className="container">
           <div className="wrapper js-header-wrapper">
             <div className="header__logo">
-              <Link to="/">
+              <Link href="/">
                 <img
                   className="header__logo"
                   id="logo_js"
-                  src="img/logos/Logo.svg"
+                  src="/img/logos/Logo.svg"
                   alt="logo"
                 />
               </Link>
@@ -65,32 +65,32 @@ const Header = () => {
             <div className="header__menu">
               <ul className="d-flex space-x-20">
                 <li className="has_popup">
-                  <Link className="color_black is_new" to="/">
+                  <a className="color_black is_new" href="/">
                     Homes <i className="ri-more-2-fill" />
-                  </Link>
+                  </a>
                   <ul className="menu__popup space-y-20">
                     {HomesMenu.map((val, i) => (
                       <li key={i}>
-                        <Link to={val.link}>
+                        <a href={val.link}>
                           <i className={`ri-${val.icon}-line`} />
                           {val.title}
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>
                 </li>
                 {PagesMenu.map((val, i) => (
                   <li key={i}>
-                    <Link className="color_black" to={val.link}>
+                    <Link className="color_black" href={val.link}>
                       {val.title}
                     </Link>
                   </li>
                 ))}
 
                 <li className="has_popup2">
-                  <Link className="color_black is_new hovered" to="/">
+                  <a className="color_black is_new hovered" href="/">
                     Pages <i className="ri-more-2-fill" />
-                  </Link>
+                  </a>
                   <ul className="menu__popup2 space-y-20">
                     <MegaMenu />
                   </ul>
@@ -100,19 +100,19 @@ const Header = () => {
             {/* ================= */}
             <div className="header__search">
               <input type="text" placeholder="Search" />
-              <Link to="no-results" className="header__result">
+              <a href="no-results" className="header__result">
                 <i className="ri-search-line" />
-              </Link>
+              </a>
             </div>
             <div className="header__btns">
-              <Link className="btn btn-grad btn-sm" to="connect-wallet">
+              <a className="btn btn-grad btn-sm" href="connect-wallet">
                 <i className="ri-wallet-3-line" />
                 Connect wallet
-              </Link>
+              </a>
             </div>
-            <div className="header__burger js-header-burger" onClick={toggleClass}/>
-            <div className={` header__mobile js-header-mobile  ${isActive ? 'visible': null} `}>
-            <MobileMenu />
+            <div className="header__burger js-header-burger" onClick={toggleClass} />
+            <div className={` header__mobile js-header-mobile  ${isActive ? 'visible' : null} `}>
+              <MobileMenu />
             </div>
           </div>
         </div>
