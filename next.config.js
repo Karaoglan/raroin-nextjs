@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ['https://ipfs.io'],
   },
+  target: "serverless", //TODO add for netlify CHECK CAUTION
 }
 
 module.exports = nextConfig
