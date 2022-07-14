@@ -65,9 +65,9 @@ const Header = () => {
             <div className="header__menu">
               <ul className="d-flex space-x-20">
                 <li className="has_popup">
-                  <a className="color_black is_new" href="/">
-                    Homes <i className="ri-more-2-fill" />
-                  </a>
+                  <Link className="color_black is_new" href="/">
+                    <span> Homes <i className="ri-more-2-fill" /></span>
+                  </Link>
                   <ul className="menu__popup space-y-20">
                     {HomesMenu.map((val, i) => (
                       <li key={i}>
@@ -88,9 +88,9 @@ const Header = () => {
                 ))}
 
                 <li className="has_popup2">
-                  <a className="color_black is_new hovered" href="/">
-                    Pages <i className="ri-more-2-fill" />
-                  </a>
+                  <Link className="color_black is_new hovered" href="/">
+                    <span>Pages <i className="ri-more-2-fill" /></span>
+                  </Link>
                   <ul className="menu__popup2 space-y-20">
                     <MegaMenu />
                   </ul>

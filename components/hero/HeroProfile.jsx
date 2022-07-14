@@ -168,7 +168,7 @@ const HeroProfile = () => {
                                                                                 <h3>
                                                                                     Thank
                                                                                     you,
-                                                                                    we've
+                                                                                    we&apos;ve
                                                                                     received
                                                                                     your
                                                                                     report

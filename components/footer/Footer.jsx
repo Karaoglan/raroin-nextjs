@@ -10,9 +10,9 @@ function Footer() {
           <div className="row">
             <div className="col-lg-6 space-y-20">
               <div className="footer__logo">
-                <a href="/">
+                <Link href="/">
                   <Image src={`/img/logos/Logo.svg`} alt="logo" id="logo_js_f" width={100} height={100} />
-                </a>
+                </Link>
               </div>
               <p className="footer__text">
                 raroin is a shared liquidity NFT market smart contract

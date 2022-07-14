@@ -11,7 +11,7 @@ import CardsOffer from '../components/cards/filterscards/CardsOffer';
 import CardsPrice from '../components/cards/filterscards/CardsPrice';
 import CardsSold from '../components/cards/filterscards/CardsSold';
 import Collection2 from '../components/collection/Collection2';
-
+// TODO RESOLVE img -> Image nextjs problem css image sizes
 function MenuCategoriesMarket() {
   return (
     <div className="w-100">
@@ -23,28 +23,30 @@ function MenuCategoriesMarket() {
             </Link>
           </Tab>
           <Tab>
-            <a href="/marketplace">
-              <i className="ri-brush-line" />
-              <span> Art</span>
-            </a>
+            <Link href="/marketplace">
+              <span><i className="ri-brush-line" /> Art</span>
+            </Link>
           </Tab>
           <Tab>
-            <a href="/marketplace">
-              <i className="ri-stock-line" />
-              <span> Trading Cards</span>
-            </a>
+            <Link href="/marketplace">
+              <span>
+                <i className="ri-stock-line" />
+                Trading Cards</span>
+            </Link>
           </Tab>
           <Tab>
-            <a href="/marketplace">
-              <i className="ri-music-line" />
-              <span> Music</span>
-            </a>
+            <Link href="/marketplace">
+              <span>
+                <i className="ri-music-line" />
+                Music</span>
+            </Link>
           </Tab>
           <Tab>
-            <a href="/marketplace">
-              <i className="ri-layout-4-line" />
-              <span> Collectibles</span>
-            </a>
+            <Link href="/marketplace">
+              <span>
+                <i className="ri-layout-4-line" />
+                Collectibles</span>
+            </Link>
           </Tab>
         </TabList>
 

@@ -8,7 +8,7 @@ const PreviewFooter = () => {
       <div className="container px-xl-0">
         <div className="row justify-content-between align-items-center">
           <div className="col-lg-auto text-xl-left logo_holder">
-            <a href="/">
+            <Link href="/">
               <Image
                 className="header__logo"
                 id="logo_js"
@@ -17,7 +17,7 @@ const PreviewFooter = () => {
                 width={100}
                 height={100}
               />
-            </a>
+            </Link>
           </div>
           <div className="col-lg-auto semibold space-x-20 links bottom0menu">
             <Link href="mailto:creabik@gmail.com" className="link color_text">

@@ -34,9 +34,9 @@ const HeroPreview = () => {
                 <Link className="btn btn-white" href="/upload">
                   Create Item
                 </Link>
-                <a className="btn btn-white" href="/">
+                <Link className="btn btn-white" href="/">
                   Purchase now
-                </a>
+                </Link>
               </div>
             </div>
           </div>

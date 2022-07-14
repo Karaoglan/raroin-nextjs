@@ -45,12 +45,12 @@ const Upload = () => {
           <div className="container">
             <div className="space-y-20 space-x-10">
               <span>
-                <a
+                <Link
                   href="/"
                   className="btn btn-white btn-sm
                     switch">
                   Back To Home
-                </a>
+                </Link>
               </span>
               <span>
                 <a
@@ -104,7 +104,7 @@ const Upload = () => {
                       <span>External Link</span>
                       <span className="color_text">(optional) </span>
                       <div className="">
-                        <p><small>Firm will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details.</small></p>
+                        <p><small>Firm will include a link to this URL on this item&apos;s detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details.</small></p>
                       </div>
                       <input
                         type="text"

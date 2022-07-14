@@ -9,7 +9,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { injected } from '../../helpers/connectors';
 import { useEffect } from "react";
-//import Web3ReactConnectionComponent from "./Web3ReactConnectionComponent";
 
 const wallets = [
     {
@@ -87,9 +86,9 @@ const ConnectWallet = () => {
             <div className="effect">
                 <div className="container">
                     <div>
-                        <a href="/" className="btn btn-white btn-sm mt-20">
+                        <Link href="/" className="btn btn-white btn-sm mt-20">
                             Back to home
-                        </a>
+                        </Link>
                         <div className="hero__wallets pt-100 pb-50">
                             <div className="space-y-20 d-flex flex-column align-items-center">
                                 <div className="logo">
@@ -303,7 +302,6 @@ const ConnectWallet = () => {
                             </div>
                         </div>
                     </div>
-                    REPL HERE
                 </div>
             </div>
         </>
@@ -311,9 +309,3 @@ const ConnectWallet = () => {
 };
 
 export default ConnectWallet;
-/*
-  <div>
-                        REPLACE HERE BELOW
-                        <Web3ReactConnectionComponent />
-                    </div>
-                    */
