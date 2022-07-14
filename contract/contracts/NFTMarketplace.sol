@@ -23,6 +23,7 @@ contract NFTMarketplace is ERC721URIStorage {
       address payable owner;
       uint256 price;
       bool sold;
+      string tokenURI;
     }
 
     event MarketItemCreated (
@@ -30,7 +31,8 @@ contract NFTMarketplace is ERC721URIStorage {
       address seller,
       address owner,
       uint256 price,
-      bool sold
+      bool sold,
+      string tokenURI
     );
 
     constructor() ERC721("Metaverse Tokens", "METT") {
@@ -55,13 +57,14 @@ contract NFTMarketplace is ERC721URIStorage {
 
       _mint(msg.sender, newTokenId);
       _setTokenURI(newTokenId, tokenURI);
-      createMarketItem(newTokenId, price);
+      createMarketItem(newTokenId, price, tokenURI);
       return newTokenId;
     }
 
     function createMarketItem(
       uint256 tokenId,
-      uint256 price
+      uint256 price,
+      string memory tokenURI
     ) private {
       require(price > 0, "Price must be at least 1 wei");
       require(msg.value == listingPrice, "Price must be equal to listing price");
@@ -71,7 +74,8 @@ contract NFTMarketplace is ERC721URIStorage {
         payable(msg.sender),
         payable(address(this)),
         price,
-        false
+        false,
+        tokenURI
       );
 
       _transfer(msg.sender, address(this), tokenId);
@@ -80,7 +84,8 @@ contract NFTMarketplace is ERC721URIStorage {
         msg.sender,
         address(this),
         price,
-        false
+        false,
+        tokenURI
       );
     }
 

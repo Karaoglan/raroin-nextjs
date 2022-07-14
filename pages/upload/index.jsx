@@ -3,6 +3,7 @@ import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
 import Head from "next/head";
 import Link from 'next/link';
+import axios from 'axios';
 import { useEffect } from "react";
 import { getContract } from "../../helpers/contract";
 
@@ -19,25 +20,19 @@ const Upload = () => {
     // get the contract
     const contract = getContract(library, account);
 
+    const response = await axios.post('/api/upload', {
+        title: "Hello World!",
+        body: "This is a new post."
+      });
 
-    const transactionNftCreate = await contract.createToken("SOME URI", ethers.utils.parseUnits("1", "ether"), { value: ethers.utils.parseUnits("0.025", "ether") });
+    console.log(response);
+    const transactionNftCreate = await contract.createToken(response.data.URI, ethers.utils.parseUnits("1", "ether"), { value: ethers.utils.parseUnits("0.025", "ether") });
     console.log('Mining....', transactionNftCreate.hash)
     const transactionNftCreateReceipt = await transactionNftCreate.wait();
     if (transactionNftCreateReceipt.status !== 1) {
       alert('create token error message');
       return;
     }
-    /*
-    axios
-      .post('/api/upload', {
-        title: "Hello World!",
-        body: "This is a new post."
-      })
-      .then((response) => {
-        console.log(response);
-
-      
-      });*/
   };
 
   return (

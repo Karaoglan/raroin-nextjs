@@ -45,7 +45,10 @@ async function CreatePinMeta(metadata, fileIndex) {
     //send result hash CID to create Metadata.
     console.log(result);
     metadata.image = result.IpfsHash;
-    metadata.attributes.push({ 'eyecolor': 'blue' });
+    metadata.attributes.push(
+      { "trait_type": "Base", "value": "Starfish" },
+      { "trait_type": "Eyes", "value": "Big" },
+      { "trait_type": "Mouth", "value": "Surprised" });
     //this is the meta data that points to the PNG, pinning JSON to pinata.
     console.log(metadata);
     const options = {
