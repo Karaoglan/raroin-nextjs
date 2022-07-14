@@ -1,6 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config({path:__dirname+'/.env'})
 
+console.log(process.env.ACCOUNT_PRIVATE_KEY)
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.9",

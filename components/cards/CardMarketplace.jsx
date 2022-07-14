@@ -125,6 +125,8 @@ function CardMarketplace() {
     cardItems[0].img = image;
     cardItems[0].price = price;
     cardItems[0].title = response.data.name;
+    cardItems[0].avatar_name1 = "Burak"
+    
     setCardItems(cardItems);
     setLoading(false);
     debugger;

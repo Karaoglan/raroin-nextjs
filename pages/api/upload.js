@@ -3,7 +3,7 @@ const pinataSDK = require('@pinata/sdk');
 const fs = require('fs');
 const path = require('path');
 
-const pinata = pinataSDK('3d096c52acc84e57dc64', 'eb8a5a3b73c269dd4e764b3053b063c6e2b38f28f124e6705b91a89c49af3b03');
+const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_API_KEY);
 
 export default async function handler(req, res) {
   console.log(req.body);
