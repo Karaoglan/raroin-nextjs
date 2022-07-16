@@ -113,9 +113,9 @@ function CardMarketplace() {
 
     setLoading(true);
     const items = await contract.fetchItemsListed();
-    const prx = items[1]['price'];
-    const tokenId = items[1]['tokenId'].toString();
-    const tokenURI = items[1]['tokenURI'].toString();
+    const prx = items[0]['price'];
+    const tokenId = items[0]['tokenId'].toString();
+    const tokenURI = items[0]['tokenURI'].toString();
     const price = ethers.utils.formatEther(prx);
     const metadataJson = `https://gateway.pinata.cloud/ipfs/${tokenURI}`;
     const response = await axios.get(metadataJson);
