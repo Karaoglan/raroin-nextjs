@@ -7,7 +7,7 @@ const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_A
 
 export default async function handler(req, res) {
   console.log(req.body);
-  let URI;
+  let URI = "";
   try {
     const result = await pinata.testAuthentication();
     console.log(result);
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     console.log("NFT minted:", URI);
 
   } catch (error) {
-    console.log(err);
+    console.log(error);
   }
 
   res.status(200).json({ URI })
