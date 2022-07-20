@@ -1,13 +1,14 @@
 import { useWeb3React } from '@web3-react/core';
+import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { getContract } from "../../helpers/contract";
-import { ethers } from "ethers";
-import axios from 'axios';
+import { injected } from '../../helpers/connectors';
+import { ethers } from 'ethers';
+import { ipfsToHTTPS } from "../../helpers/util";
 
-const CardItems = [
+/*const CardItems = [
   {
     avatar_img1: '1',
     avatar_name1: 'mickel_fenn',
@@ -96,53 +97,155 @@ const CardItems = [
     price: '3.55',
     stock: '9',
   },
-];
+];*/
 
 function CardMarketplace() {
   const ref = useRef();
   const closeTooltip = () => ref.current.close();
 
-  const [cardItems, setCardItems] = useState(CardItems);
+  const [cardItems, setCardItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [price, setPrice] = useState(0);
+  const [tokenId, setTokenId] = useState(0);
   const { chainId, account, activate, active, library } = useWeb3React();
-  
+
   const getListedItems = async () => {
     // get the contract
-    const contract = getContract(library, account);
+    //const contract = getContract(library, account);
 
     setLoading(true);
-    const items = await contract.fetchItemsListed();
-    const prx = items[0]['price'];
-    const tokenId = items[0]['tokenId'].toString();
-    const tokenURI = items[0]['tokenURI'].toString();
-    const price = ethers.utils.formatEther(prx);
-    const metadataJson = `https://gateway.pinata.cloud/ipfs/${tokenURI}`;
-    const response = await axios.get(metadataJson);
+    /*const items = await contract.fetchItemsListed();
 
-    const image = `https://ipfs.io/ipfs/${response.data.image}`;
+    //setCardItems(cardItems);
 
-    cardItems[0].img = image;
-    cardItems[0].price = price;
-    cardItems[0].title = response.data.name;
-    cardItems[0].avatar_name1 = "Burak"
-    
-    setCardItems(cardItems);
-    setLoading(false);
+    const itx = items.map(async (item) => {
+      const prx = item['price'];
+      const tokenId = item['tokenId'].toString();
+      const tokenURI = item['tokenURI'].toString();
+      const price = ethers.utils.formatEther(prx);
+
+      const metadataJson = `https://gateway.pinata.cloud/ipfs/${tokenURI}`;
+      console.log(tokenURI);
+      const response = await axios.get(tokenURI);
+      console.log(item);
+      debugger;
+      return {
+        img: response.data.image,
+        price,
+        title: response.data.name,
+        avatar_name1: 'Burak',
+        avatar_img1: '13',
+        avatar_img2: '14',
+        avatar_name2: 'mucky_art',
+        likes: '11.5',
+        stock: '9',
+        tokenId
+      }
+    })
+
+    setCardItems([...itx]);*/
+
+    const res = await axios.post(
+      'https://api.studio.thegraph.com/query/31385/nft-marketplace/v0.0.1',
+      {
+        query: `
+          {
+            nfts(first: 3) {
+              id
+              seller
+              owner
+              price,
+              sold,
+              tokenURI
+            }
+          }
+        `
+      }
+    )
+
     debugger;
-    console.log(items);
+    console.log('begin')
+
+    let data = await Promise.all(res.data.data.nfts.map(async (item) => {
+      const prx = item['price'];
+      setTokenId(item['id'].toString());
+      const tokenURI = item['tokenURI'].toString();
+      setPrice(ethers.utils.formatEther(prx));
+
+      return await axios.get(ipfsToHTTPS(tokenURI));
+    }))
+
+    data = data.map(response => {
+      return {
+        img: ipfsToHTTPS(response.data.image),
+        price,
+        title: response.data.name,
+        avatar_name1: 'Burak',
+        avatar_img1: '13',
+        avatar_img2: '14',
+        avatar_name2: 'mucky_art',
+        likes: '11.5',
+        stock: '9',
+        tokenId
+      }
+    });
+    
+    /*const itx = await res.data.data.nfts.map(async (item) => {
+      const prx = item['price'];
+      const tokenId = item['id'].toString();
+      const tokenURI = item['tokenURI'].toString();
+
+      const price = ethers.utils.formatEther(prx);
+
+      const response = await axios.get(ipfsToHTTPS(tokenURI));
+      console.log(response.data);
+      return {
+        img: ipfsToHTTPS(response.data.image),
+        price,
+        title: response.data.name,
+        avatar_name1: 'Burak',
+        avatar_img1: '13',
+        avatar_img2: '14',
+        avatar_name2: 'mucky_art',
+        likes: '11.5',
+        stock: '9',
+        tokenId
+      }
+    })
+
+    */
+    setTimeout(() => {
+      console.log('end')
+      debugger;
+      setCardItems([...data]);
+      setLoading(false);
+    }, 3000)
+
+
   };
 
   useEffect(() => {
     console.log(chainId, account, active, library);
-    getListedItems();
+    callActivate();
   }, [chainId, account, active]);
+
+  const callActivate = async () => {
+    if (active) {
+      getListedItems();
+    } else {
+      await activate(injected);
+      console.log(account);
+    }
+  }
 
   return (
     <div>
       <div className="row mb-30_reset">
+        {(loading || !cardItems) && '!NO CONTENT'}
         {!loading && cardItems.map((val, i) => (
           <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6" key={i}>
+            {val.img}
             <div className="card__item four">
               <div className="card_body space-y-10">
                 {/* =============== */}
