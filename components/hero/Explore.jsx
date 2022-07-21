@@ -17,7 +17,7 @@ const Explore = () => {
 
               </div>
               <h4>Royalties</h4>
-              <p>Musicians can crowfund new projects by selling royalty ownership in the form of NFT'S. If the song or album
+              <p>Musicians can crowfund new projects by selling royalty ownership in the form of NFT&apos;S. If the song or album
                 succeeds everyone wins
               </p>
 
@@ -31,7 +31,7 @@ const Explore = () => {
                 </div>
               </div>
               <h4>Collectables</h4>
-              <p>Masters, exclusive music, lyrics, 3D avatars & album art is available as NFT'S for fans and collectors</p>
+              <p>Masters, exclusive music, lyrics, 3D avatars & album art is available as NFT&apos;S for fans and collectors</p>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
               <div className="card__item four">

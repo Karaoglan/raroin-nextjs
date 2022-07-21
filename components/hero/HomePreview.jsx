@@ -14,7 +14,7 @@ const HomePreview = () => {
                   Fans & Investors
                 </h1>
                 <p className="hero__text txt">
-                  Rare Groove is a revolutionary NFT music marketplace that backs NFT's with real world value.
+                  Rare Groove is a revolutionary NFT music marketplace that backs NFT&apos;S with real world value.
                   We bring fans & musicians together without middleman or centeralised control.
                 </p>
                 <div
