@@ -50,8 +50,8 @@
     background-color: $color_info;
 }
 
-.marketplace {
-    p, h1, h2, h3, h4, h5, h6 {
+.marketplace, .upload {
+    p, span, h1, h2, h3, h4, h5, h6 {
         color: $color_black;
     }
 }

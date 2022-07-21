@@ -39,50 +39,11 @@ const Upload = () => {
     }
   }*/
 
-  const createItem = async () => {
+  const onSubmit = async data => {
     if (!active) {
       prompt('please sign in');
       return;
     }
-    try {
-
-      //const result = await client.add(JSON.stringify({ image, price, name, description, attributes: traitTypes }))
-      const data = new FormData();
-      data.append("name", "KAR1111");
-      data.append("description", "DESCR GOOD NFT KAR1111");
-      data.append("image", image);
-      data.append("attributes", JSON.stringify([{ trait_type: "eyecolor", value: "blueesz" }, { trait_type: "level", value: 1.8, max_value: 10 }]));
-      data.append("external_link", "https://burakkaraoglan.com");
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: data,
-      });
-      if (response.status == 201) {
-        const json = await response.json();
-        const contract = getContract(library, account);
-
-        console.log(json.uri);
-        const transactionNftCreate = await contract.createToken(json.uri, ethers.utils.parseUnits("0.03", "ether"), { value: ethers.utils.parseUnits("0.025", "ether") });
-        console.log('Mining....', transactionNftCreate.hash)
-        const transactionNftCreateReceipt = await transactionNftCreate.wait();
-        if (transactionNftCreateReceipt.status !== 1) {
-          alert('create token error message');
-          return;
-        }
-      }
-
-    } catch (error) {
-      console.log("ipfs uri upload error: ", error)
-    }
-  }
-
-  const onSubmit = async data => {
-    data.media = data.media[0];
-    console.log(data);
-    setPrice(data.price);
-    setName(data.title);
-    setDescription(data.description);
-    setImage(data.media);
     /*if (data.media) {
       var fileToLoad = data.media;
 
@@ -112,13 +73,16 @@ const Upload = () => {
 
     try {
       //const result = await client.add(JSON.stringify({ image, price, name, description, attributes: traitTypes }))
-      const data = new FormData();
-      data.append("name", data.title);
-      data.append("description", data.description);
-      data.append("image", data.media);
+      const dataToSend = new FormData();
+      dataToSend.append("external_link", "https://burakkaraoglan.com");
+      dataToSend.append("name", data.title);
+      dataToSend.append("description", data.description);
+      dataToSend.append("image", data.media[0]);
+      dataToSend.append("attributes", JSON.stringify(data.attributes));
+      dataToSend.append("price", data.price);
       const response = await fetch("/api/upload", {
         method: "POST",
-        body: data,
+        body: dataToSend,
       });
       if (response.status == 201) {
         const json = await response.json();
@@ -145,11 +109,6 @@ const Upload = () => {
       <Head>
         <title>Upload Item</title>
       </Head>
-      <button
-        onClick={createItem}
-        className='btn btn-grad btn_create'>
-        CREATE
-      </button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="hero__upload">
           <div className="container">
@@ -175,7 +134,7 @@ const Upload = () => {
           </div>
 
         </div>
-        <div className="container">
+        <div className="container upload">
           <div className="box in__upload mb-120">
             <div className="row">
               <div className="col-lg-6">
@@ -294,12 +253,12 @@ const Upload = () => {
                       <span className="variationInput">Price</span>
                       <select
                         className="form-select custom-select"
-                        aria-label="Default select example">
-                        <option> 00.00 ETH</option>
-                        <option>01.00 ETH</option>
-                        <option>02.00 ETH</option>
-                        <option>10.00 ETH</option>
-                        <option>20.00 ETH</option>
+                        aria-label="Default select example" {...register('price')}>
+                        <option value="0">00.00 ETH</option>
+                        <option value="0.03">00.03 ETH</option>
+                        <option value="1">1.00 ETH</option>
+                        <option value="2">2.00 ETH</option>
+                        <option value="5">5.00 ETH</option>
                       </select>
                     </div>
 
