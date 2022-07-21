@@ -1,105 +1,14 @@
 import { useWeb3React } from '@web3-react/core';
 import axios from 'axios';
+import { ethers } from 'ethers';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { injected } from '../../helpers/connectors';
-import { ethers } from 'ethers';
 import { ipfsToHTTPS } from "../../helpers/util";
 
-/*const CardItems = [
-  {
-    avatar_img1: '1',
-    avatar_name1: 'mickel_fenn',
-    avatar_img2: '2',
-    avatar_name2: 'danil_pannini',
-    likes: '1.2',
-    img: '1',
-    title: 'Colorful Abstract Painting',
-    price: '2.45',
-    stock: '4',
-  },
-  {
-    avatar_img1: '3',
-    avatar_name1: 'mazanov_sky',
-    avatar_img2: '4',
-    avatar_name2: 'mucky_fennouni',
-    likes: '13.2',
-    img: '/img/items/item_2.png',
-    title: 'The girl with the firefly',
-    price: '2.55',
-    stock: '12',
-  },
-  {
-    avatar_img1: '5',
-    avatar_name1: 'jimmy_dom',
-    avatar_img2: '6',
-    avatar_name2: 'kristian_sefroui',
-    likes: '1.2',
-    img: '/img/items/item_3.png',
-    title: 'Dodo hide the seek',
-    price: '2.45',
-    stock: '6',
-  },
-  {
-    avatar_img1: '1',
-    avatar_name1: 'Alvin_nov',
-    avatar_img2: '7',
-    avatar_name2: 'mucky_holiman',
-    likes: '4.1',
-    img: '/img/items/item_4.png',
-    title: 'Liquid Forest Princess',
-    price: '0.55',
-    stock: '34',
-  },
-  {
-    avatar_img1: '8',
-    avatar_name1: 'stivan_rominok',
-    avatar_img2: '9',
-    avatar_name2: 'danil_pan',
-    likes: '6.4',
-    img: '/img/items/item_5.png',
-    title: 'Spider Eyes Modern Art',
-    price: '1.45',
-    stock: '7',
-  },
-  {
-    avatar_img1: '10',
-    avatar_name1: 'mazanov_sky',
-    avatar_img2: '11',
-    avatar_name2: 'mucky_art',
-    likes: '13.2',
-    img: '/img/items/item_6.png',
-    title: 'Synthwave Painting',
-    price: '0.055',
-    stock: '2',
-  },
-  {
-    avatar_img1: '12',
-    avatar_name1: 'jimmy_dom',
-    avatar_img2: '5',
-    avatar_name2: 'kristian_fel',
-    likes: '1.6',
-    img: '/img/items/item_7.png',
-    title: 'Contemporary Abstract',
-    price: '0.95',
-    stock: '34',
-  },
-  {
-    avatar_img1: '13',
-    avatar_name1: 'Alvin_nov',
-    avatar_img2: '14',
-    avatar_name2: 'mucky_art',
-    likes: '11.5',
-    img: '/img/items/item_8.png',
-    title: 'Valkyrie Abstract Art',
-    price: '3.55',
-    stock: '9',
-  },
-];*/
-
-function CardMarketplace() {
+function LatestDrops() {
   const ref = useRef();
   const closeTooltip = () => ref.current.close();
 
@@ -111,47 +20,14 @@ function CardMarketplace() {
   const { chainId, account, activate, active, library } = useWeb3React();
 
   const getListedItems = async () => {
-    // get the contract
-    //const contract = getContract(library, account);
-
     setLoading(true);
-    /*const items = await contract.fetchItemsListed();
-
-    //setCardItems(cardItems);
-
-    const itx = items.map(async (item) => {
-      const prx = item['price'];
-      const tokenId = item['tokenId'].toString();
-      const tokenURI = item['tokenURI'].toString();
-      const price = ethers.utils.formatEther(prx);
-
-      const metadataJson = `https://gateway.pinata.cloud/ipfs/${tokenURI}`;
-      console.log(tokenURI);
-      const response = await axios.get(tokenURI);
-      console.log(item);
-      debugger;
-      return {
-        img: response.data.image,
-        price,
-        title: response.data.name,
-        avatar_name1: 'Burak',
-        avatar_img1: '13',
-        avatar_img2: '14',
-        avatar_name2: 'mucky_art',
-        likes: '11.5',
-        stock: '9',
-        tokenId
-      }
-    })
-
-    setCardItems([...itx]);*/
 
     const res = await axios.post(
       'https://api.studio.thegraph.com/query/31385/nft-marketplace/v0.0.1',
       {
         query: `
           {
-            nfts(first: 10) {
+            nfts(first: 3, orderBy: id, orderDirection: desc) {
               id
               seller
               owner
@@ -163,9 +39,6 @@ function CardMarketplace() {
         `
       }
     )
-
-    debugger;
-    console.log('begin')
 
     let data = await Promise.all(res.data.data.nfts.map(async (item) => {
       const prx = item['price'];
@@ -190,39 +63,9 @@ function CardMarketplace() {
         tokenId
       }
     });
-    
-    /*const itx = await res.data.data.nfts.map(async (item) => {
-      const prx = item['price'];
-      const tokenId = item['id'].toString();
-      const tokenURI = item['tokenURI'].toString();
 
-      const price = ethers.utils.formatEther(prx);
-
-      const response = await axios.get(ipfsToHTTPS(tokenURI));
-      console.log(response.data);
-      return {
-        img: ipfsToHTTPS(response.data.image),
-        price,
-        title: response.data.name,
-        avatar_name1: 'Burak',
-        avatar_img1: '13',
-        avatar_img2: '14',
-        avatar_name2: 'mucky_art',
-        likes: '11.5',
-        stock: '9',
-        tokenId
-      }
-    })
-
-    */
-    setTimeout(() => {
-      console.log('end')
-      debugger;
-      setCardItems([...data]);
-      setLoading(false);
-    }, 3000)
-
-
+    setCardItems([...data]);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -241,7 +84,8 @@ function CardMarketplace() {
 
   return (
     <div className='marketplace'>
-      <div className="row mb-30_reset">
+      <div className="row mb-30_reset mt-10 mx-100 justify-content-between">
+        <h3 className='my-20'>LATEST DROPS</h3>
         {(loading || !cardItems) && '!NO CONTENT'}
         {!loading && cardItems.map((val, i) => (
           <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6" key={i}>
@@ -547,8 +391,13 @@ function CardMarketplace() {
           </div>
         ))}
       </div>
+      <div className='view-all mr-100 mt-20'>
+        <Link href="/marketplace">
+          <a className='btn btn-black btn-primary'>View All</a>
+        </Link>
+      </div>
     </div>
   );
 }
 
-export default CardMarketplace;
+export default LatestDrops;

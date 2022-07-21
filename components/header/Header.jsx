@@ -1,41 +1,27 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import MegaMenu from './Menu/MegaMenu';
 import MobileMenu from './Menu/MobileMenu';
 
-const HomesMenu = [
-  {
-    icon: 'home-smile-2',
-    title: ' Home page 1',
-    link: '/home-1',
-  },
-  {
-    icon: 'home-2',
-    title: ' Home page 2',
-    link: '/home-2',
-  },
-  {
-    icon: 'home-5',
-    title: ' Home page 3',
-    link: '/home-3',
-  },
-];
 const PagesMenu = [
   {
     title: 'Marketplace',
     link: '/marketplace',
   },
   {
-    title: 'Collections',
-    link: '/collections',
+    title: 'Tickets',
+    link: '/tickets',
   },
   {
-    title: ' Profile',
-    link: '/profile',
+    title: 'Collectables',
+    link: '/collectables',
   },
   {
-    title: 'Creators',
-    link: '/creators',
+    title: ' Royalties',
+    link: '/royalties',
+  },
+  {
+    title: 'Music',
+    link: '/music',
   },
 ];
 
@@ -64,21 +50,6 @@ const Header = () => {
             {/* ==================  */}
             <div className="header__menu">
               <ul className="d-flex space-x-20">
-                <li className="has_popup">
-                  <Link className="color_black is_new" href="/">
-                    <span> Homes <i className="ri-more-2-fill" /></span>
-                  </Link>
-                  <ul className="menu__popup space-y-20">
-                    {HomesMenu.map((val, i) => (
-                      <li key={i}>
-                        <a href={val.link}>
-                          <i className={`ri-${val.icon}-line`} />
-                          {val.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
                 {PagesMenu.map((val, i) => (
                   <li key={i}>
                     <Link className="color_black" href={val.link}>
@@ -86,15 +57,6 @@ const Header = () => {
                     </Link>
                   </li>
                 ))}
-
-                <li className="has_popup2">
-                  <Link className="color_black is_new hovered" href="/">
-                    <span>Pages <i className="ri-more-2-fill" /></span>
-                  </Link>
-                  <ul className="menu__popup2 space-y-20">
-                    <MegaMenu />
-                  </ul>
-                </li>
               </ul>
             </div>
             {/* ================= */}

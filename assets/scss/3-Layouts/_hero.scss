@@ -39,13 +39,37 @@
         }
     }
 }
+
+.leading-home {
+    margin-top: -80px;
+    background-color: $color_info;
+}
+
+.invest-in {
+    margin-top: 60px;
+    background-color: $color_info;
+}
+
+.marketplace {
+    p, h1, h2, h3, h4, h5, h6 {
+        color: $color_black;
+    }
+}
+
+.view-all {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
 .hero__index {
     overflow: hidden;
     position: relative;
     z-index: 0;
     @include before {
         left: 0;
-        background: white;
+        background: black;
         width: 100vw;
         height: calc(100% - 5rem);
         z-index: -1;
@@ -54,6 +78,7 @@
             height: calc(100%);
         }
     }
+
     .is__big {
         padding: 40px;
         transform-origin: 50% -50px;
@@ -82,6 +107,9 @@
                 color: #2e4f69;
             }
         }
+    }
+    .heartbeat {
+        background-color: $color-white;
     }
     .sh_1 {
         position: absolute;
