@@ -1,7 +1,8 @@
 .header__1 {
     position: relative;
     background: $color_black;
-    width: 100%;
+    background: $color_white;
+    border-bottom: solid 1px $color_stroke;
     white-space: nowrap;
     &.header_wallet {
         display: none;
