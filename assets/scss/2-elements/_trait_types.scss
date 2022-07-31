@@ -1,11 +1,26 @@
+.traits {
+  display: flex;
+  flex-direction: row;
+}
+
 .trait-properties {
-  width: 5rem;
+  width: 100px;
   height: 3rem;
-  background-color: rgb(21, 178, 229);
-  border: 2px solid $color_white;
+  background-color: rgba(21, 178, 229, 0.06);
+  border: 1px solid rgb(21, 178, 229);
   text-transform: uppercase;
+  cursor: pointer;
   border-radius: 9%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .prop-key {
+    color: green !important;
+  }
+
+  .prop-value {
+    color: yellow !important;
+  }
 }
