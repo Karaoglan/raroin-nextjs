@@ -8,11 +8,69 @@ import 'reactjs-popup/dist/index.css';
 import { injected } from '../../helpers/connectors';
 import { ipfsToHTTPS } from "../../helpers/util";
 
+/*
+<div className="row mb-30_reset  align-items-center justify-content-center space-x-100">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div className="card__item four">
+                <div className="card_body space-y-10">
+                  <div className="card_head">
+                    <img src={`img/items/item_1.png`} alt="nftimage" />
+
+                  </div>
+                </div>
+
+              </div>
+              <h4>Royalties</h4>
+              <p>Musicians can crowfund new projects by selling royalty ownership in the form of NFT&apos;S. If the song or album
+                succeeds everyone wins
+              </p>
+
+            </div>
+*/
+
 function LatestDrops() {
   const ref = useRef();
   const closeTooltip = () => ref.current.close();
 
-  const [cardItems, setCardItems] = useState([]);
+  const [cardItems, setCardItems] = useState([
+    //dummy
+    {
+      img: `https://media-public.canva.com/0xi1g/MAEWmt0xi1g/1/s.jpg`,
+      price: 1,
+      title: "Good Waves",
+      avatar_name1: 'Burak',
+      avatar_img1: '13',
+      avatar_img2: '14',
+      avatar_name2: 'mucky_art',
+      likes: '11.5',
+      stock: '9',
+      tokenId: 2
+    },
+    {
+      img: `https://media-private.canva.com/MADFjTf6XxQ/1/screen.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220803%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220803T033700Z&X-Amz-Expires=31008&X-Amz-Signature=8b0850deba49a40384f4bee245cc3457d95f9064fecb7945840008194858eb1a&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Aug%202022%2012%3A13%3A48%20GMT`,
+      price: 2,
+      title: "Bloody",
+      avatar_name1: 'Burak',
+      avatar_img1: '13',
+      avatar_img2: '14',
+      avatar_name2: 'mucky_art',
+      likes: '11.5',
+      stock: '9',
+      tokenId: 3
+    },
+    {
+      img: `https://media-private.canva.com/1BxcU/MAEE8u1BxcU/1/s.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220802T115710Z&X-Amz-Expires=87660&X-Amz-Signature=4a5dd7ac8b664db35a44d899940ebd5e123dd2ce35b0c9ef9b0e6b76a08890a3&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Aug%202022%2012%3A18%3A10%20GMT`,
+      price: 5,
+      title: "Crazy",
+      avatar_name1: 'Burak',
+      avatar_img1: '13',
+      avatar_img2: '14',
+      avatar_name2: 'mucky_art',
+      likes: '11.5',
+      stock: '9',
+      tokenId: 6
+    }
+  ]);
   const [loading, setLoading] = useState(false);
 
   const [price, setPrice] = useState(0);
@@ -82,10 +140,15 @@ function LatestDrops() {
     }
   }
 
+  
+
   return (
     <div className='marketplace'>
       <div className="row mb-30_reset mt-10 mx-100 justify-content-between">
-        <h3 className='my-20'>LATEST DROPS</h3>
+        <h1 className='my-20 headline extrabold'>Latest Drops</h1>
+
+
+
         {(loading || !cardItems) && '!NO CONTENT'}
         {!loading && cardItems.map((val, i) => (
           <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6" key={i}>

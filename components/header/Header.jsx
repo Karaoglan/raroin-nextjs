@@ -4,26 +4,29 @@ import MobileMenu from './Menu/MobileMenu';
 
 const PagesMenu = [
   {
-    title: 'Marketplace',
-    link: '/marketplace',
-  },
-  {
     title: 'Tickets',
     link: '/tickets',
-  },
-  {
-    title: 'Collectables',
-    link: '/collectables',
   },
   {
     title: ' Royalties',
     link: '/royalties',
   },
   {
-    title: 'Music',
-    link: '/music',
+    title: 'Collectables',
+    link: '/collectables',
+  },
+  {
+    title: 'Listen',
+    link: '/listen',
   },
 ];
+/*
+  {
+    title: 'Marketplace',
+    link: '/marketplace',
+  },
+*/
+
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
@@ -37,16 +40,6 @@ const Header = () => {
       <header className="header__1">
         <div className="container">
           <div className="wrapper js-header-wrapper">
-            <div className="header__logo">
-              <Link href="/">
-                <img
-                  className="header__logo"
-                  id="logo_js"
-                  src="/img/logos/Logo.svg"
-                  alt="logo"
-                />
-              </Link>
-            </div>
             {/* ==================  */}
             <div className="header__menu">
               <ul className="d-flex space-x-20">
@@ -60,15 +53,27 @@ const Header = () => {
               </ul>
             </div>
             {/* ================= */}
+            <div className="header__logo">
+              <Link href="/">
+                <img
+                  className="header__logo"
+                  id="logo_js"
+                  src="/img/logos/Logo.svg"
+                  alt="logo"
+                />
+              </Link>
+            </div>
             <div className="header__search">
               <input type="text" placeholder="Search" />
               <a href="no-results" className="header__result">
                 <i className="ri-search-line" />
               </a>
             </div>
+            <div className="header__token">
+              <p>TOKEN</p>
+            </div>
             <div className="header__btns">
               <a className="btn btn-grad btn-sm" href="connect-wallet">
-                <i className="ri-wallet-3-line" />
                 Connect wallet
               </a>
             </div>

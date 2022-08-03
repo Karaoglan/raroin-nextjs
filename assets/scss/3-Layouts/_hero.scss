@@ -3,9 +3,12 @@
   margin-top: -500px;
   margin-left: 50px;
   position: relative;
-  top: 150px;
+  top: 50px;
   color: #fff;
   z-index: 3;
+  h1, p {
+    color: white;
+  }
 }
 
 .hero__1 {
@@ -52,7 +55,7 @@
 
 .leading-home {
   margin-top: -80px;
-  background-color: $color_info;
+  background-color: white;
 }
 
 .invest-in {
@@ -64,7 +67,6 @@
 .upload {
   p,
   span,
-  h1,
   h2,
   h3,
   h4,

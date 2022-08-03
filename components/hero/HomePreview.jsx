@@ -9,13 +9,15 @@ const HomePreview = () => {
           <source src='/video/video1.mp4' type='video/mp4' />
         </video>
         <div className='overlay'></div>
-        <div className='home-content'>
+        <div className='home-content space-y-20'>
           <h1 className='hero__title'>WEB3 MUSIC DECENTRALISED</h1>
-          <p className='hero__text txt'>
-            Invest in your favourite Artists & songs.
-          </p>
-          <p>Rare Groove helps musicians & fans collabrate</p>
-          <p>using NFT&apos;s & blockchain technology</p>
+          <div>
+            <p className='hero__text txt'>
+              Invest in your favourite Artists & songs.
+            </p>
+            <p>Rare Groove helps musicians & fans collabrate</p>
+            <p>using NFT&apos;s & blockchain technology</p>
+          </div>
           <div
             className='sm:space-x-0 space-x-20 d-flex flex-column flex-md-row
                   sm:space-y-20'
@@ -36,21 +38,23 @@ const HomePreview = () => {
           </div>
         </div>
       </div>
-      <div className='leading-home align-items-center justify-content-center p-100'>
+      <div className='leading-home row align-items-center justify-content-center text-center p-100 space-y-2'>
+        <div>
+          <img  
+            src={`/img/bg/image1.png`}
+            alt="image-blocks"
+            className="avatar avatar-sm"
+          />
+        </div>
         <span>
-          <h2>LEADING THE WAY FOR A</h2>
-          <h2>DECENTRALISED MUSIC </h2>{' '}
+          <h1 className="headline extrabold">The World&apos;s Most Feature Rich</h1>
           <span>
-            <h2>
-              INDUSTRY{' '}
-              <Image
-                src={`/img/icons/heartbeat.png`}
-                className='heartbeat'
-                width={50}
-                height={50}
-                alt='heart_beat'
-              />
+            <h2 className='subheadline medium'>
+              Music NFT Platform
             </h2>
+            <p>
+              Rare Groove connects musicians with fans directly using NFT&apos;s & blockchain technology. Our mission is to disrupt the music industry with innovative features such as blockchain streaming, NFT royalties, collectables and concert tickets. Imagine artists and fans collaborating and succeeding together without centralised control. Rare Groove makes this happen
+            </p>
           </span>
         </span>
       </div>

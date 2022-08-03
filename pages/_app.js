@@ -6,7 +6,6 @@ import '../assets/scss/style.scss';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import '../styles/globals.css';
-import '@fontsource/montserrat';
 
 const getLibrary = (provider) => {
   const library = new Web3Provider(provider);

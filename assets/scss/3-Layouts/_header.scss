@@ -1,8 +1,14 @@
+header li + li:before{
+  content: '|';
+  padding: 2px;
+  position: relative;
+}
+
 .header__1 {
     position: relative;
-    background: $color_black;
-    background: $color_white;
+    background: #000;
     border-bottom: solid 1px $color_stroke;
+    color: $color_white;
     white-space: nowrap;
     &.header_wallet {
         display: none;
@@ -100,6 +106,9 @@
             width: 27rem;
             max-width: inherit;
         }
+    }
+    .header__token > p {
+      color: white;
     }
     .header__search {
         &.in_mobile {
