@@ -15,7 +15,7 @@ function Faqs() {
           </div>
 
           <p>
-            NFT stands for "non-fungible token" and is recorded in the
+            NFT stands for &quot;non-fungible token&quot; and is recorded in the
             blockchain, allowing NFTs to be sold and traded.
           </p>
         </div>
@@ -26,8 +26,8 @@ function Faqs() {
           </div>
 
           <p>
-            Simply connect your digital wallet such as "Metamask" and start
-            buying and selling NFT's
+            Simply connect your digital wallet such as &quot;Metamask&quot; and start
+            buying and selling NFT&apos;s
           </p>
         </div>
 
