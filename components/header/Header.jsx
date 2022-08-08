@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import MobileMenu from './Menu/MobileMenu';
@@ -45,7 +46,7 @@ const Header = () => {
               <ul className="d-flex space-x-20">
                 {PagesMenu.map((val, i) => (
                   <li key={i}>
-                    <Link className="color_black" href={val.link}>
+                    <Link href={val.link}>
                       {val.title}
                     </Link>
                   </li>
@@ -54,14 +55,16 @@ const Header = () => {
             </div>
             {/* ================= */}
             <div className="header__logo">
-              <Link href="/">
-                <img
-                  className="header__logo"
-                  id="logo_js"
-                  src="/img/logos/Logo.svg"
-                  alt="logo"
-                />
-              </Link>
+              <Link href='/'>
+                        <Image
+                            className='header__logo'
+                            id='logo_js'
+                            src='/img/bg/logo-trs.png'
+                            alt='logo'
+                            width={200}
+                            height={100}
+                        />
+                    </Link>
             </div>
             <div className="header__search">
               <input type="text" placeholder="Search" />

@@ -1,24 +1,20 @@
+import {
+  Networks,
+  NFTFetchConfiguration, useNFT
+} from '@zoralabs/nft-hooks';
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import LatestDrops from '../components/cards/LatestDrops';
+import ApplyDrop from '../components/cards/UserFriendlyFeatures';
 import CreateSell from '../components/cards/CreateSell';
-import TopArtist from '../components/creators/TopArtist';
+import Faqs from '../components/cards/Faqs';
+import LatestDrops from '../components/cards/LatestDrops';
+import MarketImage from '../components/cards/MarketImage';
+import ProjectDetails from '../components/cards/ProjectDetails';
+import Royalties from '../components/cards/Royalties';
 import Explore from '../components/hero/Explore';
 import HomePreview from '../components/hero/HomePreview';
-import styles from '../styles/Home.module.css';
-import {
-  useNFT,
-  useNFTMetadata,
-  Networks,
-  NFTFetchConfiguration,
-} from '@zoralabs/nft-hooks';
-import Royalties from '../components/cards/Royalties';
-import ProjectDetails from '../components/cards/ProjectDetails';
-import ApplyDrop from '../components/cards/ApplyDrop';
-import MarketImage from '../components/cards/MarketImage';
-import Faqs from '../components/cards/Faqs';
 import RareExplore from '../components/hero/RareExplore';
+import styles from '../styles/Home.module.css';
+import UserFriendlyFeatures from '../components/cards/UserFriendlyFeatures';
 /*
 
         <TopArtist />
@@ -53,35 +49,35 @@ import RareExplore from '../components/hero/RareExplore';
 
 */
 export default function Home() {
-  const { data } = useNFT('0x997F20833affE82816267288d3DAf4fcE12f0B80', '1');
-  console.log('!!!!!data', data);
+    const { data } = useNFT('0x997F20833affE82816267288d3DAf4fcE12f0B80', '1');
+    console.log('!!!!!data', data);
 
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Rare Groove - NFT Music Marketplace</title>
-        <meta
-          name='description'
-          content='Rare Groove NFT Music Marketplace - real world value, bringing fans & musicians together without middleman.'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <NFTFetchConfiguration networkId={Networks.RINKEBY}>
-        {data}
-      </NFTFetchConfiguration>
-      <div>
-        <HomePreview />
-        <LatestDrops />
-        <CreateSell />
-        <Explore />
-        <Royalties />
-        <ProjectDetails />
-        <ApplyDrop />
-        <MarketImage />
-        <Faqs />
-        <RareExplore />
-      </div>
-      
-    </div>
-  );
+    return (
+        <div className={styles.container}>
+            <Head>
+                <title>Rare Groove - NFT Music Marketplace</title>
+                <meta
+                    name='description'
+                    content='Rare Groove NFT Music Marketplace - real world value, bringing fans & musicians together without middleman.'
+                />
+                <link rel='icon' href='/favicon.ico' />
+            </Head>
+            <NFTFetchConfiguration networkId={Networks.RINKEBY}>
+                {data}
+            </NFTFetchConfiguration>
+            <div>
+                <HomePreview />
+                <LatestDrops />
+                <CreateSell />
+                <Explore />
+                <Royalties />
+                <ProjectDetails />
+                <UserFriendlyFeatures />
+                <MarketImage />
+                <Faqs />
+                <RareExplore />
+            </div>
+        </div>
+    );
 }
+

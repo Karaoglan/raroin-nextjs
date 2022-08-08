@@ -1,10 +1,10 @@
 function ProjectDetails() {
   return (
-    <div className='row project-details'>
+    <div className='row project-details py-120'>
       <div className='flex-d row space-y-40'>
         <div className='col-lg-9'>
         </div>
-        <div className='col-lg-3 space-y-30'>
+        <div className='col-lg-3 space-y-30 '>
           <div>
             <h3 className='head'>Removes Middleman</h3>
             <p>

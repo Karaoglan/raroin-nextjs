@@ -1,6 +1,7 @@
 import { useWeb3React } from '@web3-react/core';
 import axios from 'axios';
 import { ethers } from 'ethers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Popup from 'reactjs-popup';
@@ -35,7 +36,7 @@ function LatestDrops() {
   const [cardItems, setCardItems] = useState([
     //dummy
     {
-      img: `https://media-public.canva.com/0xi1g/MAEWmt0xi1g/1/s.jpg`,
+      img: `/img/bg/img1.png`,
       price: 1,
       title: "Good Waves",
       avatar_name1: 'Burak',
@@ -47,7 +48,7 @@ function LatestDrops() {
       tokenId: 2
     },
     {
-      img: `https://media-private.canva.com/MADFjTf6XxQ/1/screen.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220803%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220803T033700Z&X-Amz-Expires=31008&X-Amz-Signature=8b0850deba49a40384f4bee245cc3457d95f9064fecb7945840008194858eb1a&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Aug%202022%2012%3A13%3A48%20GMT`,
+      img: `/img/bg/img2.png`,
       price: 2,
       title: "Bloody",
       avatar_name1: 'Burak',
@@ -59,7 +60,7 @@ function LatestDrops() {
       tokenId: 3
     },
     {
-      img: `https://media-private.canva.com/1BxcU/MAEE8u1BxcU/1/s.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20220802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220802T115710Z&X-Amz-Expires=87660&X-Amz-Signature=4a5dd7ac8b664db35a44d899940ebd5e123dd2ce35b0c9ef9b0e6b76a08890a3&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2003%20Aug%202022%2012%3A18%3A10%20GMT`,
+      img: `/img/bg/img3.png`,
       price: 5,
       title: "Crazy",
       avatar_name1: 'Burak',
@@ -78,7 +79,7 @@ function LatestDrops() {
   const { chainId, account, activate, active, library } = useWeb3React();
 
   const getListedItems = async () => {
-    setLoading(true);
+    /*setLoading(true);
 
     const res = await axios.post(
       'https://api.studio.thegraph.com/query/31385/nft-marketplace/v0.0.1',
@@ -122,7 +123,7 @@ function LatestDrops() {
       }
     });
 
-    setCardItems([...data]);
+    setCardItems([...data]);*/
     setLoading(false);
   };
 
@@ -152,309 +153,11 @@ function LatestDrops() {
         {(loading || !cardItems) && '!NO CONTENT'}
         {!loading && cardItems.map((val, i) => (
           <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6" key={i}>
-            <div className="card__item four">
-              <div className="card_body space-y-10">
-                {/* =============== */}
-                <div className="creators space-x-10">
-                  <div className="avatars space-x-3">
-                    <Link href="profile">
-                      <img
-                        src={val.img}
-                        alt="Avatar"
-                        className="avatar avatar-sm"
-                      />
-                    </Link>
-                    <Link href="profile">
-                      <p className="avatars_name txt_xs">@{val.avatar_name1}</p>
-                    </Link>
-                  </div>
-                  <div className="avatars space-x-3">
-                    <Link href="profile">
-                      <img
-                        src={`img/avatars/avatar_${val.avatar_img2}.png`}
-                        alt="Avatar"
-                        className="avatar avatar-sm"
-                      />
-                    </Link>
-                    <Link href="profile">
-                      <p className="avatars_name txt_xs">@{val.avatar_name2}</p>
-                    </Link>
-                  </div>
-                </div>
-                <div className="card_head">
-                  <Link href="Item-details">
-                    <img src={val.img} alt="nftimage" />
-                  </Link>
-                  <a href="#" className="likes space-x-3">
-                    <i className="ri-heart-3-fill" />
-                    <span className="txt_sm">{val.likes}k</span>
-                  </a>
-                </div>
-                {/* =============== */}
-                <h6 className="card_title">{val.title}</h6>
-                <div className="card_footer d-block space-y-10">
-                  <div className="card_footer justify-content-between">
-                    <div className="creators">
-                      <p className="txt_sm"> {val.stock} in stock</p>
-                    </div>
-                    <Link href="#">
-                      <p className="txt_sm">
-                        Price:
-                        <span
-                          className="color_green
-                                                txt_sm">
-                          {val.price} ETH
-                        </span>
-                      </p>
-                    </Link>
-                  </div>
-                  <div className="hr" />
-                  <div
-                    className="d-flex
-								align-items-center
-								space-x-10
-								justify-content-between">
-                    <div
-                      className="d-flex align-items-center
-									space-x-5">
-                      <i className="ri-history-line" />
-                      <Popup
-                        className="custom"
-                        ref={ref}
-                        trigger={
-                          <button className="popup_btn">
-                            <p
-                              className="color_text txt_sm view_history"
-                              style={{ width: 'auto' }}>
-                              View History
-                            </p>
-                          </button>
-                        }
-                        position="bottom center">
-                        <div>
-                          <div
-                            className="popup"
-                            id="popup_bid"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-hidden="true">
-                            <div>
-                              <button
-                                type="button"
-                                className="button close"
-                                data-dismiss="modal"
-                                aria-label="Close"
-                                onClick={closeTooltip}>
-                                <span aria-hidden="true">×</span>
-                              </button>
-                              <div className="space-y-20">
-                                <h4> History </h4>
-                                <div className="creator_item creator_card space-x-10">
-                                  <div className="avatars space-x-10">
-                                    <div className="media">
-                                      <div className="badge">
-                                        <img
-                                          src={`img/icons/Badge.svg`}
-                                          alt="Badge"
-                                        />
-                                      </div>
-                                      <Link href="profile">
-                                        <img
-                                          src={`img/avatars/avatar_1.png`}
-                                          alt="Avatar"
-                                          className="avatar avatar-md"
-                                        />
-                                      </Link>
-                                    </div>
-                                    <div>
-                                      <p className="color_black">
-                                        Bid accepted
-                                        <span className="color_brand">
-                                          1 ETH
-                                        </span>
-                                        by
-                                        <Link
-                                          className="color_black txt
-						_bold"
-                                          href="profile">
-                                          ayoub
-                                        </Link>
-                                      </p>
-                                      <span className="date color_text">
-                                        28/06/2021, 12:08
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="creator_item creator_card space-x-10">
-                                  <div className="avatars space-x-10">
-                                    <div className="media">
-                                      <div className="badge">
-                                        <img
-                                          src={`img/icons/Badge.svg`}
-                                          alt="Badge"
-                                        />
-                                      </div>
-                                      <Link href="profile">
-                                        <img
-                                          src={`img/avatars/avatar_2.png`}
-                                          alt="Avatar"
-                                          className="avatar avatar-md"
-                                        />
-                                      </Link>
-                                    </div>
-                                    <div>
-                                      <p className="color_black">
-                                        Bid accepted
-                                        <span className="color_brand">
-                                          3 ETH
-                                        </span>
-                                        by
-                                        <Link
-                                          className="color_black txt
-						_bold"
-                                          href="profile">
-                                          monir
-                                        </Link>
-                                      </p>
-                                      <span className="date color_text">
-                                        22/05/2021, 12:08
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </Popup>
-                    </div>
-
-                    <Popup
-                      className="custom"
-                      ref={ref}
-                      trigger={
-                        <button className="btn btn-sm btn-primary">
-                          Place Bid
-                        </button>
-                      }
-                      position="bottom center">
-                      <div>
-                        <div
-                          className="popup"
-                          id="popup_bid"
-                          tabIndex={-1}
-                          role="dialog"
-                          aria-hidden="true">
-                          <div>
-                            <button
-                              type="button"
-                              className="button close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                              onClick={closeTooltip}>
-                              <span aria-hidden="true">×</span>
-                            </button>
-                            <div className=" space-y-20">
-                              <h3>Place a Bid</h3>
-                              <p>
-                                You must bid at least
-                                <span className="color_black">15 ETH</span>
-                              </p>
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="00.00 ETH"
-                              />
-                              <p>
-                                Enter quantity.
-                                <span className="color_green">5 available</span>
-                              </p>
-                              <input
-                                type="text"
-                                className="form-control"
-                                defaultValue={1}
-                              />
-                              <div className="hr" />
-                              <div className="d-flex justify-content-between">
-                                <p> You must bid at least:</p>
-                                <p className="text-right color_black txt _bold">
-                                  67,000 ETH
-                                </p>
-                              </div>
-                              <div className="d-flex justify-content-between">
-                                <p> service free:</p>
-                                <p className="text-right color_black txt _bold">
-                                  0,901 ETH
-                                </p>
-                              </div>
-                              <div className="d-flex justify-content-between">
-                                <p> Total bid amount:</p>
-                                <p className="text-right color_black txt _bold">
-                                  56,031 ETH
-                                </p>
-                              </div>
-                              <Popup
-                                className="custom"
-                                ref={ref}
-                                trigger={
-                                  <button className="btn btn-primary w-full">
-                                    Place a bid
-                                  </button>
-                                }
-                                position="bottom center">
-                                <div>
-                                  <div
-                                    className="popup"
-                                    id="popup_bid"
-                                    tabIndex={-1}
-                                    role="dialog"
-                                    aria-hidden="true">
-                                    <div>
-                                      <button
-                                        type="button"
-                                        className="button close"
-                                        data-dismiss="modal"
-                                        aria-label="Close"
-                                        onClick={closeTooltip}>
-                                        <span aria-hidden="true">×</span>
-                                      </button>
-                                      <div className="space-y-20">
-                                        <h3 className="text-center">
-                                          Your Bidding Successfuly Added
-                                        </h3>
-                                        <p className="text-center">
-                                          your bid
-                                          <span
-                                            className="color_text txt
-      _bold">
-                                            (16ETH)
-                                          </span>
-                                          has been listing to our database
-                                        </p>
-                                        <Link
-                                          href="#"
-                                          className="btn btn-dark w-full">
-                                          Watch the listings
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </Popup>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Popup>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <Image alt="nft-image" src={val.img} width={500} height={750} />
           </div>
         ))}
       </div>
-      <div className='view-all mr-100 mt-20'>
+      <div className='view-all m-100'>
         <Link href="/marketplace">
           <a className='btn btn-black btn-primary'>View All</a>
         </Link>
@@ -464,3 +167,298 @@ function LatestDrops() {
 }
 
 export default LatestDrops;
+
+/*
+
+ <div className="creators space-x-10">
+ <div className="avatars space-x-3">
+   <Link href="profile">
+     <img
+       src={val.img}
+       alt="Avatar"
+       className="avatar avatar-sm"
+     />
+   </Link>
+   <Link href="profile">
+     <p className="avatars_name txt_xs">@{val.avatar_name1}</p>
+   </Link>
+ </div>
+ <div className="avatars space-x-3">
+   <Link href="profile">
+     <img
+       src={`img/avatars/avatar_${val.avatar_img2}.png`}
+       alt="Avatar"
+       className="avatar avatar-sm"
+     />
+   </Link>
+   <Link href="profile">
+     <p className="avatars_name txt_xs">@{val.avatar_name2}</p>
+   </Link>
+ </div>
+</div>
+<div className="card_head">
+ <Link href="Item-details">
+   <img src={val.img} alt="nftimage" />
+ </Link>
+ <a href="#" className="likes space-x-3">
+   <i className="ri-heart-3-fill" />
+   <span className="txt_sm">{val.likes}k</span>
+ </a>
+</div>
+<h6 className="card_title">{val.title}</h6>
+<div className="card_footer d-block space-y-10">
+ <div className="card_footer justify-content-between">
+   <div className="creators">
+     <p className="txt_sm"> {val.stock} in stock</p>
+   </div>
+   <Link href="#">
+     <p className="txt_sm">
+       Price:
+       <span
+         className="color_green
+                               txt_sm">
+         {val.price} ETH
+       </span>
+     </p>
+   </Link>
+ </div>
+ <div className="hr" />
+ <div
+   className="d-flex
+align-items-center
+space-x-10
+justify-content-between">
+   <div
+     className="d-flex align-items-center
+ space-x-5">
+     <i className="ri-history-line" />
+     <Popup
+       className="custom"
+       ref={ref}
+       trigger={
+         <button className="popup_btn">
+           <p
+             className="color_text txt_sm view_history"
+             style={{ width: 'auto' }}>
+             View History
+           </p>
+         </button>
+       }
+       position="bottom center">
+       <div>
+         <div
+           className="popup"
+           id="popup_bid"
+           tabIndex={-1}
+           role="dialog"
+           aria-hidden="true">
+           <div>
+             <button
+               type="button"
+               className="button close"
+               data-dismiss="modal"
+               aria-label="Close"
+               onClick={closeTooltip}>
+               <span aria-hidden="true">×</span>
+             </button>
+             <div className="space-y-20">
+               <h4> History </h4>
+               <div className="creator_item creator_card space-x-10">
+                 <div className="avatars space-x-10">
+                   <div className="media">
+                     <div className="badge">
+                       <img
+                         src={`img/icons/Badge.svg`}
+                         alt="Badge"
+                       />
+                     </div>
+                     <Link href="profile">
+                       <img
+                         src={`img/avatars/avatar_1.png`}
+                         alt="Avatar"
+                         className="avatar avatar-md"
+                       />
+                     </Link>
+                   </div>
+                   <div>
+                     <p className="color_black">
+                       Bid accepted
+                       <span className="color_brand">
+                         1 ETH
+                       </span>
+                       by
+                       <Link
+                         className="color_black txt_bold"
+                         href="profile">
+                         ayoub
+                       </Link>
+                     </p>
+                     <span className="date color_text">
+                       28/06/2021, 12:08
+                     </span>
+                   </div>
+                 </div>
+               </div>
+               <div className="creator_item creator_card space-x-10">
+                 <div className="avatars space-x-10">
+                   <div className="media">
+                     <div className="badge">
+                       <img
+                         src={`img/icons/Badge.svg`}
+                         alt="Badge"
+                       />
+                     </div>
+                     <Link href="profile">
+                       <img
+                         src={`img/avatars/avatar_2.png`}
+                         alt="Avatar"
+                         className="avatar avatar-md"
+                       />
+                     </Link>
+                   </div>
+                   <div>
+                     <p className="color_black">
+                       Bid accepted
+                       <span className="color_brand">
+                         3 ETH
+                       </span>
+                       by
+                       <Link
+                         className="color_black txt_bold"
+                         href="profile">
+                         monir
+                       </Link>
+                     </p>
+                     <span className="date color_text">
+                       22/05/2021, 12:08
+                     </span>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </Popup>
+   </div>
+
+   <Popup
+     className="custom"
+     ref={ref}
+     trigger={
+       <button className="btn btn-sm btn-primary">
+         Place Bid
+       </button>
+     }
+     position="bottom center">
+     <div>
+       <div
+         className="popup"
+         id="popup_bid"
+         tabIndex={-1}
+         role="dialog"
+         aria-hidden="true">
+         <div>
+           <button
+             type="button"
+             className="button close"
+             data-dismiss="modal"
+             aria-label="Close"
+             onClick={closeTooltip}>
+             <span aria-hidden="true">×</span>
+           </button>
+           <div className=" space-y-20">
+             <h3>Place a Bid</h3>
+             <p>
+               You must bid at least
+               <span className="color_black">15 ETH</span>
+             </p>
+             <input
+               type="text"
+               className="form-control"
+               placeholder="00.00 ETH"
+             />
+             <p>
+               Enter quantity.
+               <span className="color_green">5 available</span>
+             </p>
+             <input
+               type="text"
+               className="form-control"
+               defaultValue={1}
+             />
+             <div className="hr" />
+             <div className="d-flex justify-content-between">
+               <p> You must bid at least:</p>
+               <p className="text-right color_black txt _bold">
+                 67,000 ETH
+               </p>
+             </div>
+             <div className="d-flex justify-content-between">
+               <p> service free:</p>
+               <p className="text-right color_black txt _bold">
+                 0,901 ETH
+               </p>
+             </div>
+             <div className="d-flex justify-content-between">
+               <p> Total bid amount:</p>
+               <p className="text-right color_black txt _bold">
+                 56,031 ETH
+               </p>
+             </div>
+             <Popup
+               className="custom"
+               ref={ref}
+               trigger={
+                 <button className="btn btn-primary w-full">
+                   Place a bid
+                 </button>
+               }
+               position="bottom center">
+               <div>
+                 <div
+                   className="popup"
+                   id="popup_bid"
+                   tabIndex={-1}
+                   role="dialog"
+                   aria-hidden="true">
+                   <div>
+                     <button
+                       type="button"
+                       className="button close"
+                       data-dismiss="modal"
+                       aria-label="Close"
+                       onClick={closeTooltip}>
+                       <span aria-hidden="true">×</span>
+                     </button>
+                     <div className="space-y-20">
+                       <h3 className="text-center">
+                         Your Bidding Successfuly Added
+                       </h3>
+                       <p className="text-center">
+                         your bid
+                         <span
+                           className="color_text txt_bold">
+                           (16ETH)
+                         </span>
+                         has been listing to our database
+                       </p>
+                       <Link
+                         href="#"
+                         className="btn btn-dark w-full">
+                         Watch the listings
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </Popup>
+           </div>
+         </div>
+       </div>
+     </div>
+   </Popup>
+ </div>
+</div>
+
+*/

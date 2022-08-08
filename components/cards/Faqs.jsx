@@ -1,12 +1,14 @@
+import Image from 'next/image';
+
 function Faqs() {
   return (
-    <div className='faqs d-flex m-120 space-x-30'>
-      <div className='col-xl-6 space-y-10'>
-        <h1>FAQ&apos;S</h1>
+    <div className='faqs d-flex flex-column flex-md-row m-60 space-x-30'>
+      <div className='col-md-6 space-y-10'>
+        <h1 className='my-20 headline extrabold'>FAQ&apos;S</h1>
         <p>
           Answering your questions before you arrive at the NFT music awards
         </p>
-        <img src={'/img/bg/music.png'} />
+        <Image src={'/img/bg/headphone.png'} width={600} height={500} />
       </div>
       <div className='col-xl-6 space-y-20 text-center mt-60'>
         <div>

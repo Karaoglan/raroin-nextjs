@@ -5,6 +5,12 @@
     }
 }
 
+.explore-section {
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+
 .box {
     @include card_item;
     display: block;
@@ -444,6 +450,7 @@
         max-width: 400px;
         margin: 0 auto;
         .card_body {
+            position: relative;
             .card_head {
                 max-width: none;
                 max-height: none;
