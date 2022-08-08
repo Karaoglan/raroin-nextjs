@@ -99,7 +99,7 @@
   @include before {
     left: 0;
     background: black;
-    width: 100vw;
+    width: 100%;
     height: calc(100% - 5rem);
     z-index: -1;
     font-size: 22px;
