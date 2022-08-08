@@ -1,7 +1,4 @@
-import {
-  Networks,
-  NFTFetchConfiguration, useNFT
-} from '@zoralabs/nft-hooks';
+import { Networks, NFTFetchConfiguration, useNFT } from '@zoralabs/nft-hooks';
 import Head from 'next/head';
 import ApplyDrop from '../components/cards/UserFriendlyFeatures';
 import CreateSell from '../components/cards/CreateSell';
@@ -61,6 +58,12 @@ export default function Home() {
                     content='Rare Groove NFT Music Marketplace - real world value, bringing fans & musicians together without middleman.'
                 />
                 <link rel='icon' href='/favicon.ico' />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link
+                    href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap'
+                    rel='stylesheet'
+                />
             </Head>
             <NFTFetchConfiguration networkId={Networks.RINKEBY}>
                 {data}
@@ -80,4 +83,3 @@ export default function Home() {
         </div>
     );
 }
-
