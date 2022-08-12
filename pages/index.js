@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import TopArtist from "../components/creators/TopArtist";
+import Hero1 from '../components/hero/Hero1';
 import HeroPreview from '../components/hero/HeroPreview';
 import styles from '../styles/Home.module.css';
 
@@ -13,6 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
+        <Hero1 />
         <HeroPreview />
         <TopArtist />
       </div>
