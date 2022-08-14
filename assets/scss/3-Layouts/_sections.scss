@@ -7,6 +7,12 @@
         font-size: 30px;
     }
 }
+
+.royalties__home {
+    background-color: white;
+}
+
+
 .section__head {
     margin-bottom: 30px;
 }
@@ -24,10 +30,15 @@
     }
 }
 
+.explore-rare {
+    background-image: url(/img/bg/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .call2action {
-    background: radial-gradient(100.04% 100.76% at 50.49% -0.76%, #29436d 0%, #050911 100%);
-    padding: 100px 0;
-    margin-top: 100px;
+    color: $color_black;
+    padding: 50px 20px 0 20px;
     @include md {
         text-align: center;
         .section__text {
@@ -35,16 +46,16 @@
             margin-left: auto;
         }
     }
+
     &.is__light {
         background-color: $color_white;
-        background-image: url(/img/bg/circles.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right center;
     }
 
     .section__text {
-        max-width: 30rem;
+        max-width: 40rem;
         margin-left: 0;
         @include md {
             margin-left: auto;

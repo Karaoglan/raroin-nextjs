@@ -1,7 +1,11 @@
 import Head from 'next/head';
-import TopArtist from "../components/creators/TopArtist";
+import Buysell from '../components/hero/Buysell';
+import Call2action from '../components/hero/Call2Action';
+import ExploreRare from '../components/hero/ExploreRare';
 import Hero1 from '../components/hero/Hero1';
-import HeroPreview from '../components/hero/HeroPreview';
+import Hero2 from '../components/hero/Hero2';
+import LatestDrops from '../components/hero/LatestDrops';
+import Royalties from '../components/hero/Royalties';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -15,8 +19,12 @@ export default function Home() {
       </Head>
       <div>
         <Hero1 />
-        <HeroPreview />
-        <TopArtist />
+        <Call2action />
+        <Hero2 />
+        <LatestDrops />
+        <Buysell />
+        <ExploreRare />
+        <Royalties />
       </div>
     </div>
   )

@@ -141,8 +141,15 @@
 }
 
 // ------------ typography
-.txt_hero {
-    font-size: 72px;
+.txt_hero_lg {
+    font-size: 60px;
+    color: $color-grey-heading;
+    font-family: $font-heading !important;
+}
+
+.txt_hero_md {
+    font-size: 40px;
+    color: $color-grey-heading;
 }
 
 .txt_lg {

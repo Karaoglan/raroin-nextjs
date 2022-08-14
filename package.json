@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "start:local": "cd contract/scripts && npx hardhat node",
     "deploy:local": "cd contract/scripts && npx hardhat run deploy.js --network localhost",
     "deploy:rinkeby": "cd contract/scripts && npx hardhat run deploy.js --network rinkeby",

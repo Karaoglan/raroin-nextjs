@@ -1,4 +1,4 @@
-.heading {
+.hero-heading {
     position: relative;
     height: 95vh;
     min-height: 25rem;
@@ -65,13 +65,17 @@
 
     .hero__left {
         padding: 100px 0;
-
         @include tablet_vert_screen {
             padding: 50px 0;
         }
     }
 
+    .heading-text {
+        font-size: 30em;
+    }
+
     .hero__text {
+        font-size: larger;
         max-width: 30rem;
         margin-left: 0;
     }

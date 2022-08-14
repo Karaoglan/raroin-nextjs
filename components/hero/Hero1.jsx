@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hero1 = () => {
   return (
-    <div className="heading">
+    <div className="hero-heading">
       <div className="overlay"></div>
 
       <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
@@ -15,11 +15,11 @@ const Hero1 = () => {
             <div className="col-lg-6">
               <div className="hero__left space-y-20">
                 <h1 className="hero__title">
-                  WEB3
-                  MUSIC
+                  WEB3 <br />
+                  MUSIC <br />
                   REVOLUTION
                 </h1>
-                <p className="hero__text txt">
+                <p className="txt_lg">
                   Invest in your favourite Artists & songs.
                   Rare Groove helps musicians & fans collabrate
                   using NFT&apos;s & blockchain technology
@@ -27,21 +27,15 @@ const Hero1 = () => {
                 <div
                   className="space-x-20 d-flex flex-column flex-md-row
                 sm:space-y-20">
-                  <a className="btn btn-primary">
                     <Link href="marketplace">
-                      Explore
+                      <button className="btn btn-primary"><span className='p-40'>Explore</span></button>
                     </Link>
-                  </a>
-                  <a className="btn btn-white">
-                    <Link href="upload-type">
-                      Create
+
+                    <Link href="upload">
+                    <button className="btn btn-white"><span className='p-40'>Create</span></button>
                     </Link>
-                  </a>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-
             </div>
           </div>
         </div>
