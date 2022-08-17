@@ -42,10 +42,10 @@ const Hero1 = () => {
                   using NFT&apos;s & blockchain technology
                 </p>
                 <div
-                  className="d-flex flex-column flex-md-row
+                  className="d-flex flex-column flex-md-row md:space-x-20
                 sm:space-y-20">
                     <Link href="marketplace">
-                      <button className="btn btn-primary mr-20"><span className='p-40'>Explore</span></button>
+                      <button className="btn btn-primary"><span className='p-40'>Explore</span></button>
                     </Link>
 
                     <Link href="upload">
