@@ -55,12 +55,12 @@ const Features = () => {
       <div className='fst'></div>
       <div className='scd'>
         <div className='flex-column space-y-30 md:m-40 l:m-80 xl:m-80 m-100 mr-60 text-white'>
-          {FeaturesContent.map(feature => {
+          {FeaturesContent.map((feature, i) => {
             return (
-              <div>
+              <div key={i}>
                 <div className='mb-10 d-flex space-x-10'>
                   <div style={{fontSize: '32px', color: '#f40ce5'}}>
-                    <i class={`${feature.icon}`}></i>
+                    <i className={`${feature.icon}`}></i>
                   </div>
                   <h2><i>{feature.title}</i></h2>
                 </div>

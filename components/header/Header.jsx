@@ -42,8 +42,7 @@ const Header = () => {
 
   return (
     <div className='header-sticky'>
-
-      <header className="header__1 header-section d-none d-xl-block">
+      <header className="header__1 header-section ">
         <div className="container">
           <div className="wrapper js-header-wrapper">
             <div className="header__logo">

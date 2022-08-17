@@ -25,13 +25,13 @@ const LogoVideoBottom = () => {
                     </div>
                     <div
                         className='sm:space-x-0 space-x-20 d-flex flex-column flex-md-row
-                  sm:space-y-20 align-items justify-content-center mb-20'
+                  sm:space-y-20 align-items justify-content-center mb-40'
                     >
                         <Link href='/explore'>
-                            <a className='btn btn-primary'>Explore</a>
+                            <a className='btn btn-primary'><span className='p-40'>Explore</span></a>
                         </Link>
                         <Link href='/upload'>
-                            <a className='btn btn-white'>Create</a>
+                            <a className='btn btn-white'><span className='p-40'>Create</span></a>
                         </Link>
                     </div>
                 </div>
