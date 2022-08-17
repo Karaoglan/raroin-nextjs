@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion"
 
 const wallets = [
     {
@@ -27,6 +28,11 @@ const Buysell = () => {
 
     const walletCard = (val) => {
         return (
+            <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9 }}
+  >
             <button
                 className="box in__wallet__home space-y-10"
             >
@@ -41,6 +47,7 @@ const Buysell = () => {
                 <h5 className="text-center txt_lg">{val.title}</h5>
                 <p className="text-center txt_lg">{val.p}</p>
             </button>
+    </motion.div>
         );
     };
 

@@ -1,6 +1,33 @@
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 function Call2action() {
+
+  const exampleVariant = {
+    initial: { opacity: 0, scale: 0.85 },
+    whileInView: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5, ease: "easeOut" },
+    viewport: { once: true }
+  }
+
+  const boxVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, scale: 0 }
+  };
+
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
   return (
     <div className="call2action is__light">
       <div className="container">
@@ -8,13 +35,22 @@ function Call2action() {
           className="d-flex flex-column flex-md-row-reverse justify-content-between align-items-center
                 sm:space-y-20">
           <div className="col-md-4">
-            <Image
-              className="img-fluid img__logo"
-              alt="rr"
-              width={800}
-              height={800}
-              src={`/img/logos/blockchain.png`}
-            />
+            <motion.div className="box"
+      ref={ref}
+      variants={boxVariant}
+      initial="hidden"
+      viewport={'once'}
+      animate={control}>
+
+              <Image
+                className="img-fluid img__logo"
+                alt="rr"
+                width={800}
+                height={800}
+                src={`/img/logos/blockchain.png`}
+              />
+
+            </motion.div>
           </div>
           <div className="col-md-8">
             <div className="space-y-20 justify-content-end">

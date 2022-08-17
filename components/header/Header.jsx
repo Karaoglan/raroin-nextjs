@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
-import MegaMenu from './Menu/MegaMenu';
+import { useEffect, useState } from 'react';
 import MobileMenu from './Menu/MobileMenu';
 
 const PagesMenu = [
@@ -28,10 +27,23 @@ const Header = () => {
     setActive(!isActive);
   };
 
-  return (
-    <div>
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  });
 
-      <header className="header__1">
+  const isSticky = (e) => {
+    const header = document.querySelector('.header-sticky');
+    const scrollTop = window.scrollY;
+    scrollTop >= 100 ? header.classList.add('sticky') : header.classList.remove('sticky');
+  };
+
+  return (
+    <div className='header-sticky'>
+
+      <header className="header__1 header-section d-none d-xl-block">
         <div className="container">
           <div className="wrapper js-header-wrapper">
             <div className="header__logo">

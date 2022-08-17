@@ -36,6 +36,61 @@
     background-size: cover;
 }
 
+.market-place-details {
+    min-height: 900px;
+}
+
+.faqs {
+    background-color: #fff;
+    h1 {
+      text-underline-position: under;
+      text-underline-offset: 10px;
+      text-decoration: underline;
+    }
+    a {
+      border-radius: 5rem;
+    }
+  }
+  
+
+.apply-drop {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pointing {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    h2 {
+        color: rgb(175, 172, 189);
+    }
+    &.img {
+        background-image: url(/img/bg/pointing.png);
+    }
+
+    &.solid {
+        background-image: url(/img/bg/bg.png);
+    }
+
+    @include xl_screen {
+        .fst {
+            display: flex;
+            flex-grow: 100;
+        }
+        .scd {
+            display: flex;
+            flex-grow: 1;
+            
+        }
+        .trd {
+            display: flex;
+            flex-grow: 5;
+        }
+    }    
+}
+
 .call2action {
     color: $color_black;
     padding: 50px 20px 0 20px;
@@ -61,9 +116,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-    }
-    @include tablet_vert_screen {
-        margin-top: 50px;
     }
 }
 

@@ -1,7 +1,7 @@
 .hero-heading {
     position: relative;
-    height: 95vh;
-    min-height: 25rem;
+    height: 110vh;
+    min-height: 100vh;
     width: 100%;
     overflow: hidden;
 
@@ -175,7 +175,7 @@
     .hero__title {
         font-size: 74px;
 
-        @include tablet_vert_screen {
+        @include sm {
             font-size: 45px;
         }
     }

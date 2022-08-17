@@ -1,9 +1,23 @@
+.header-sticky {
+    background-color: rgb(46, 52, 64);
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    opacity: 0.8;
+    -webkit-backdrop-filter: blur( 2.5px );
+    backdrop-filter: blur( 2.5px );
+}
+
 .header__1 {
     position: relative;
     background: $color_white;
     border-bottom: solid 1px $color_stroke;
     width: 100%;
     white-space: nowrap;
+
     &.header_wallet {
         display: none;
     }

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,24 +27,31 @@ const wallets = [
 
 const ExploreRare = () => {
 
-    const walletCard = (val) => {
+    const walletCard = (val, i) => {
         return (
-            <div className="d-flex justify-content-center">
-                <button
-                    className="box in__explore space-y-10 "
-                >
-                    <div className="logo">
-                        <Image
-                            src={val.icon}
-                            alt="logo_community"
-                            width={550}
-                            height={400}
-                        />
-                    </div>
-                    <h5 className="text-white txt_lg">{val.title}</h5>
-                    <p className="text-white txt_lg" dangerouslySetInnerHTML={{ __html: val.p }}></p>
-                </button>
-            </div>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.25, opacity: 0.4, opacity: 0.5, opacity: 0.6,
+                    opacity: 0.7, opacity: 1 }}
+                transition={{ duration: 1.5 }}
+            >
+                <div className="d-flex justify-content-center">
+                    <button
+                        className="box in__explore"
+                    >
+                        <div className="logo">
+                            <Image
+                                src={val.icon}
+                                alt="logo_community"
+                                width={550}
+                                height={400}
+                            />
+                        </div>
+                        <h5 className="text-white txt_lg">{val.title}</h5>
+                        <p className="text-white txt_lg" dangerouslySetInnerHTML={{ __html: val.p }}></p>
+                    </button>
+                </div>
+            </motion.div>
         );
     };
 
@@ -66,10 +74,10 @@ const ExploreRare = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="wallets">
-                            <div className="row">
+                            <div className="row sm:mx-0 md:mx-0 mx-80">
                                 {wallets.map((val, i) => (
                                     <div className="col-md-6" key={i}>
-                                        {walletCard(val)}
+                                        {walletCard(val, i)}
                                     </div>
                                 ))}
                             </div>

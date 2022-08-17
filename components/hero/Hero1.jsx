@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion'
 
 const Hero1 = () => {
   return (
@@ -14,11 +15,27 @@ const Hero1 = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="hero__left space-y-20">
-                <h1 className="hero__title">
-                  WEB3 <br />
-                  MUSIC <br />
-                  REVOLUTION
-                </h1>
+                <motion.div initial="hidden" animate="visible"
+                  variants={{
+                    hidden: {
+                      scale: .8,
+                      opacity: 0
+                    },
+                    visible: {
+                      scale: 1,
+                      opacity: 1,
+                      transition: {
+                        delay: .4
+                      }
+                    }
+                  }}
+                >
+                  <h1 className="hero__title">
+                    WEB3 <br />
+                    MUSIC <br />
+                    REVOLUTION
+                  </h1>
+                </motion.div>
                 <p className="txt_lg">
                   Invest in your favourite Artists & songs.
                   Rare Groove helps musicians & fans collabrate
