@@ -5,7 +5,7 @@ const ApplyDrop = () => {
     return (
 
             <motion.div
-                className="apply-drop p-60 d-flex justify-content-center align-items-end space-x-30"
+                className="container apply-drop py-40 d-flex justify-content-center align-items-end space-x-30"
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: 0.25, opacity: 0.4, opacity: 0.5, opacity: 0.6,

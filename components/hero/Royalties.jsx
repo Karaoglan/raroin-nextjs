@@ -41,7 +41,7 @@ const Royalties = () => {
 
     return (
         <div className="royalties__home">
-            <div className="container">
+            <div className="container py-20">
                 <div className="section__head">
                     <div
                         className="d-flex row text-center mb-20 space-y-30">

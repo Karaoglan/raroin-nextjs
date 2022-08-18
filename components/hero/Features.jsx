@@ -1,6 +1,4 @@
-import React, { useLayoutEffect } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
 const FeaturesContent = [
   {
@@ -51,26 +49,27 @@ const Features = () => {
   }, [width])
 
   return (
-    <div className={`d-flex w-full pointing justify-content-center align-item-center ${img}`}>
-      <div className='fst'></div>
-      <div className='scd'>
-        <div className='flex-column space-y-30 md:m-40 l:m-80 xl:m-80 m-100 mr-60 text-white'>
-          {FeaturesContent.map((feature, i) => {
-            return (
-              <div key={i}>
-                <div className='mb-10 d-flex space-x-10'>
-                  <div style={{fontSize: '32px', color: '#f40ce5'}}>
-                    <i className={`${feature.icon}`}></i>
-                  </div>
-                  <h2><i>{feature.title}</i></h2>
+    <div className={`py-20 pointing ${img}`}>
+
+
+      <div className='d-flex flex-column container w-2 space-y-30 text-white feat'>
+        {FeaturesContent.map((feature, i) => {
+          return (
+            <div key={i}>
+
+              <div className='mb-10 d-flex space-x-10'>
+                <div style={{ fontSize: '32px', color: '#f40ce5' }}>
+                  <i className={`${feature.icon}`}></i>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: feature.desc }}></div>
+                <h2 style={{ color: 'rgb(244, 12, 229)' }}><i>{feature.title}</i></h2>
               </div>
-            )
-          })}
-        </div>
+              <div className='' dangerouslySetInnerHTML={{ __html: feature.desc }}></div>
+            </div>
+
+          )
+        })}
       </div>
-      <div className='trd'></div>
+
     </div>
   );
 };

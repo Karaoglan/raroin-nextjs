@@ -44,7 +44,7 @@ function LatestDrops() {
   const closeTooltip = () => ref.current.close();
   return (
     <div>
-      <div className="section mt-100">
+      <div className="section py-20">
         <div className="container">
           <div className="section__head">
             <div

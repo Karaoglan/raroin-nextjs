@@ -145,17 +145,30 @@
     font-size: 60px;
     color: $color-grey-heading;
     font-family: $font-heading !important;
+
+    @include md {
+        font-size: 35px;
+    }
 }
 
 .txt_hero_md {
     font-size: 40px;
     color: $color-grey-heading;
+    letter-spacing: 1px;
+
+    @include sm {
+        font-size: 30px;
+    }
 }
 
 .txt_lg {
     font-size: 23px;
     &._bold {
         font-family: $font-primary;
+    }
+
+    @include sm {
+        font-size: 20px;
     }
 }
 
@@ -284,6 +297,35 @@
     margin-top: 10rem;
 }
 
+/* ------------ break points */
+
+.mt-sm-20 {
+    @include tablet_vert_screen {
+        margin-top: 5rem !important;
+    }
+}
+
+.mb-md-10 {
+    @include md_screen {
+        margin-bottom: 2.5rem !important;
+    }
+}
+
+.mb-sm-14 {
+    margin-bottom: 6rem !important;
+}
+
+.p-md-10 { 
+    @include md_screen {
+        padding: 3rem !important;
+    }
+}
+
+.pt-md-6 { 
+    @include md_screen {
+        padding-top: 6rem !important;
+    }
+}
 
 /* ------------------------------------ margin bottom*/
 

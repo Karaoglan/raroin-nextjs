@@ -50,7 +50,7 @@ const Header = () => {
                 <img
                   className="header__logo"
                   id="logo_js"
-                  src="/img/logos/Logo.svg"
+                  src="/img/bg/logo-trs.png"
                   alt="logo"
                 />
               </Link>
@@ -60,8 +60,8 @@ const Header = () => {
               <ul className="d-flex space-x-20">
                 {PagesMenu.map((val, i) => (
                   <li key={i}>
-                    <Link className="color_black" href={val.link}>
-                      {val.title}
+                    <Link href={val.link}>
+                      <div className="text-white">{val.title}</div>
                     </Link>
                   </li>
                 ))}

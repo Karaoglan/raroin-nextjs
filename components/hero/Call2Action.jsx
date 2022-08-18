@@ -29,7 +29,7 @@ function Call2action() {
   }, [control, inView]);
 
   return (
-    <div className="call2action is__light">
+    <div className="call2action is__light py-20">
       <div className="container">
         <div
           className="d-flex flex-column flex-md-row-reverse justify-content-between align-items-center

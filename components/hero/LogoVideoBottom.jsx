@@ -18,14 +18,13 @@ const LogoVideoBottom = () => {
                     </Link>
                 </div>
                 <div className='d-flex flex-column justify-content-center align-content-center'>
-                    <div className='sm:p-0 sm:pb-30 p-40'>
+                    <div className='sm:p-10 sm:pb-30 p-40'>
                         <video width={'100%'} controls>
                             <source  src='/video/video2.mp4' type='video/mp4' />
                         </video>
                     </div>
                     <div
-                        className='sm:space-x-0 space-x-20 d-flex flex-column flex-md-row
-                  sm:space-y-20 align-items justify-content-center mb-40'
+                        className='d-flex flex-column flex-md-row gap-3 mx-2 align-items justify-content-center mb-40'
                     >
                         <Link href='/explore'>
                             <a className='btn btn-primary'><span className='p-40'>Explore</span></a>

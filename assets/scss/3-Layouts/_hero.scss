@@ -27,6 +27,14 @@
         h1 {
             font-size: 5em;
             font-family: $font-heading !important;
+
+            @include md {
+                font-size: 4em;
+            }
+
+            @include xs {
+                font-size: 2.7em;
+            }
         }
 
         h1, p {
@@ -60,13 +68,6 @@
 
         @include tablet_vert_screen {
             display: none;
-        }
-    }
-
-    .hero__left {
-        padding: 100px 0;
-        @include tablet_vert_screen {
-            padding: 50px 0;
         }
     }
 
@@ -175,8 +176,8 @@
     .hero__title {
         font-size: 74px;
 
-        @include sm {
-            font-size: 45px;
+        @include md {
+            font-size: 35px;
         }
     }
 
@@ -196,7 +197,6 @@
 .hero__2 {
     overflow: hidden;
     position: relative;
-    padding-top: 100px;
     z-index: 0;
 
     @include tablet_vert_screen {

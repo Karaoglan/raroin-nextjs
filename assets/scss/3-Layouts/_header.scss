@@ -13,8 +13,7 @@
 
 .header__1 {
     position: relative;
-    background: $color_white;
-    border-bottom: solid 1px $color_stroke;
+    background: #000;
     width: 100%;
     white-space: nowrap;
 
@@ -42,7 +41,7 @@
     }
     .header__logo {
         img {
-            height: 2.2rem;
+            height: 3rem;
         }
     }
     .is_new {

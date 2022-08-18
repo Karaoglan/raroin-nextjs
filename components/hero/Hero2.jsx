@@ -19,13 +19,13 @@ const CardItems = [
 function Hero2() {
   return (
     <div>
-      <div className="hero__2">
+      <div className="hero__2 py-20">
         <div className="container">
 
           <div className="section__head">
             <div
               className="d-flex justify-content-between sm-column
-                            align-items-center mb-20">
+                            align-items-center">
               <h2 className="section__title txt_hero_lg"> Latest Drops</h2>
               <Link href="collections">
               <button className="btn btn-primary mt-20"><span className='p-40'>View All</span></button>
