@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import useBreakpoints from '../hooks/_customhooks';
+import useBreakpoints from '../hooks/_customHooks';
 
 function Faqs() {
   let imageResponsiveWidth = 300;
