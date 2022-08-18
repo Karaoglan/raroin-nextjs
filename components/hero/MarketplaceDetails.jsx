@@ -1,5 +1,5 @@
 import React from 'react';
-import useBreakpoints from '../hooks/_customhooks';
+import useBreakpoints from '../hooks/_customHooks';
 
 const MarketplaceDetails = () => {
 
